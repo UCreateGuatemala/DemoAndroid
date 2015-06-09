@@ -40,4 +40,11 @@ $RECYCLE.BIN/
 .AppleDesktop
 Network Trash Folder
 Temporary Items
-.apdisk
+
+.gradle
+.iml
+/local.properties
+/.idea/
+
+.DS_Store
+/build

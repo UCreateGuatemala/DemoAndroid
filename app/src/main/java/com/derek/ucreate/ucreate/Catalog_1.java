@@ -80,7 +80,6 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
 
             btnLogo.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    alreadyLogo = true;
                     PopupMenu popup = new PopupMenu(getActivity().getApplicationContext(), v);
                     popup.inflate(R.menu.menu_add_logo);
                     Object menuHelper;
@@ -100,10 +99,12 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
                         public boolean onMenuItemClick(MenuItem item) {
                             switch (item.getItemId()) {
                                 case R.id.OurLogo:
+                                    alreadyLogo = true;
                                     logoPosition = 1;
                                     ivPosition1.setImageResource(R.mipmap.ic_launcher);
                                     return true;
                                 case R.id.OtherLogo:
+                                    alreadyLogo = true;
                                     Context context2 = getActivity().getApplicationContext();
                                     CharSequence text2 = "Choose your image";
                                     int duration2 = Toast.LENGTH_SHORT;
