@@ -30,22 +30,26 @@
         </activity>
         <activity
             android:name=".CatalogActivity"
-            android:label="@string/title_activity_catalog"
-            android:theme="@style/AppDemo"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_catalog"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppDemo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.derek.ucreate.ucreate.MainActivity" />
         </activity>
         <activity
             android:name=".HelpActivity"
-            android:label="@string/title_activity_help"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_help"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.derek.ucreate.ucreate.MainActivity" />
+        </activity>
+        <activity
+            android:name=".UserCatalogActivity"
+            android:label="@string/title_activity_user_catalog" >
         </activity>
     </application>
 

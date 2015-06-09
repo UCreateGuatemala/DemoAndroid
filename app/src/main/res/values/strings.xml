@@ -89,5 +89,6 @@
     <string name="facebook_content">Visitar página de Facebook</string>
     <string name="twitter_content">Nuestro Twitter</string>
     <string name="change_background">Cambiar el color de fondo</string>
+    <string name="title_activity_user_catalog">UserCatalogActivity</string>
 
 </resources>
