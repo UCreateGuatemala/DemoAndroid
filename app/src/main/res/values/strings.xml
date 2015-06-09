@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">UCreate</string>
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_catalog">Catálogo</string>
+
+    <string name="margin">15dp</string>
+    <string name="height_space">25dp</string>
+    <string name="size_title">25sp</string>
+    <string name="size_subtitle">20sp</string>
+    <string name="size_context">15sp</string>
+
+    <string name="title_activity_intro">IntroActivity</string>
+    <string name="slogan">Creando oportunidades</string>
+
+    <string name="title_activity_help">Ayuda</string>
+    <string name="navigating">Navegando por la aplicación</string>
+    <string name="navigating_content">En la aplicación se prestenta dos barras principales para
+    la navegación. La de hasta arriba contiene el logo y el título de la aplicación. Además contiene
+    un botón de ayuda y uno de información. Seleccione uno de estos dos para obtener ayuda acerca de
+    como utilizar la aplicación o para obtener información acerca de esta aplicación. Debajo de esta
+    barra está la barra de navegación de pestañas. Para navegar a las diferentes pestañas seleccione
+    una de ellas o deslice su dedo hacia el lado donde se encuentre la pestaña a la que desea llegar.
+    </string>
+    <string name="first_fragment">En la primera pestaña se puede observar el inicio de lo que es el
+    demo de la aplicación. Para seleccionar una plantilla seleccione uno de los botones que se
+    encuentran en la pantalla. </string>
+    <string name="second_fragment">La segunda pestaña presenta información acerca de quién es UCreate,
+    su misión, su visión y sus valores.</string>
+    <string name="third_fragment">La tercera pesataña presenta información para poder contactar a
+    UCreate. Para contactarlos selecciona uno de los textos en color azul y se dará acceso a la
+    ventana correspondiente según tu eleeción de contactarnos.</string>
+    <string name="using_demo">Utilizando las plantillas del DEMO</string>
+    <string name="using_demo_content">Una vez te encuentres dentro de una plantilla, selecciona el
+    objeto del menú que quierás colocar y arrastralo hacia la posición donde lo quieras colocar.
+    </string>
+
+    <string name="tab_button_createYourApp">Crea tu\n app</string>
+    <string name="tab_button_aboutUs">Acerca de\n UCreate</string>
+    <string name="tab_button_contactUs">Contáctanos</string>
+
+    <string name="demo_title">Crea tu app: DEMO</string>
+    <string name="demo_inst">A continuación se presenta una demostración de dos plantillas de
+        aplicaciones que ofrecemos. Para comenzar seleccione el tipo de plantilla que desee
+        experimentar. Luego interactúe con las distintas funciones que se ofrecen en la demostración.
+        Si te gusta como se ve o quisieras agregarle más opciones de las que se ofrecen en esta
+        demostración, no dudes en contactarnos y nosotros te daremos el resultado que estás buscando.
+    </string>
+    <string name="demo_select">Selecciona tu plantilla:</string>
+
+    <string name="intro">Actualmente la tecnología se presenta como una herramienta. Nosotros
+        queremos entregártela como la oportunidad, mediante apps, para expandir tu mercado.
+    </string>
+    <string name="mission">MISIÓN</string>
+    <string name="vision">VISIÓN</string>
+    <string name="values">VALORES</string>
+    <string name="mission_content">Nosotros promovemos el crecimiento de mercado de las empresas
+        mediante el uso de apps.
+    </string>
+    <string name="vision_content">Ser la empresa líder de Guatemala desarrolladora de aplicaciones
+        para las plataformas Android y iOS.
+    </string>
+    <string name="punctuality">•  Puntualidad:</string>
+    <string name="honesty">•  Honestidad:</string>
+    <string name="quality">•  Calidad:</string>
+    <string name="passion">•  Pasión:</string>
+    <string name="empathy">•  Empatía:</string>
+    <string name="punctuality_content">entregamos a tiempo</string>
+    <string name="honesty_content">ser realista</string>
+    <string name="quality_content">funcionalidad efectiva</string>
+    <string name="passion_content">reflejamos la excelencia en nuestros productos</string>
+    <string name="empathy_content">nos anticipamos a tus necesidades</string>
+
+    <string name="phone_number">Teléfono:</string>
+    <string name="email">Correo electrónico:</string>
+    <string name="facebook">Síguenos en Facebook:</string>
+    <string name="twitter">Síguenos en Twitter:</string>
+
+
+    <string name="phone_content">+502-40112305</string>
+    <string name="email_content">ucreatesa@hotmail.com</string>
+    <string name="facebook_content">Visitar página de Facebook</string>
+    <string name="twitter_content">Nuestro Twitter</string>
+    <string name="change_background">Cambiar el color de fondo</string>
+
+</resources>
