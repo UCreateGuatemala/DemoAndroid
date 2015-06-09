@@ -54,3 +54,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 
+*.lock
+*.iml
+local.properties
+*.lock
+.idea/gradle.xml
+.idea/libraries/support_v4_22_1_1.xml
+app/app.iml
+*.iml
