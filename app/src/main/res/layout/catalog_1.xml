@@ -60,7 +60,19 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/RelativeLayoutCatalog1Up">
 
-            <LinearLayout
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageViewCatalog1"/>
+            <TextView
+                android:id="@+id/textViewCatalog1"
+                android:layout_toRightOf="@id/imageViewCatalog1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:text=""/>
+
+            <!--LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -122,7 +134,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:id="@+id/imageViewCatalog1Position3"/>
-            </LinearLayout>
+            </LinearLayout-->
 
         </RelativeLayout>
 
