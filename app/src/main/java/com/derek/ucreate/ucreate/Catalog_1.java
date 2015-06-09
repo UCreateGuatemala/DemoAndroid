@@ -50,7 +50,7 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
             btnTitle = (Button) view.findViewById(R.id.buttonCatalogNewTitle);
             btnText = (Button) view.findViewById(R.id.buttonCatalogTextColor);
 
-            ivPosition1 = (ImageView) view.findViewById(R.id.imageViewCatalog1Position1);
+            /*ivPosition1 = (ImageView) view.findViewById(R.id.imageViewCatalog1Position1);
             ivPosition2 = (ImageView) view.findViewById(R.id.imageViewCatalog1Position2);
             ivPosition3 = (ImageView) view.findViewById(R.id.imageViewCatalog1Position3);
 
@@ -75,7 +75,7 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
 
             view.findViewById(R.id.textViewCatalog1Position1).setOnTouchListener(this);
             view.findViewById(R.id.textViewCatalog1Position2).setOnTouchListener(this);
-            view.findViewById(R.id.textViewCatalog1Position3).setOnTouchListener(this);
+            view.findViewById(R.id.textViewCatalog1Position3).setOnTouchListener(this);*/
 
 
             btnLogo.setOnClickListener(new View.OnClickListener() {
