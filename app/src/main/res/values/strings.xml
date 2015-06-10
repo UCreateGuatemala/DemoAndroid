@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">UCreate</string>
 
-
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
@@ -93,6 +92,7 @@
 
     <string name="logo_title">Título del logo</string>
     <string name="enter_logo_title">Escriba el título del logo..</string>
+    <string name="edit_logo">Editar Logo</string>
     <string name="orientation">Orietación</string>
     <string name="enter_orientation">Seleccione la orientación</string>
     <string name="left">Izquierda</string>
@@ -103,5 +103,10 @@
     <string name="change_logo_option">Cambiar Logo</string>
     <string name="change_title_option">Cambiar Título Logo</string>
     <string name="change_orientation_option">Cambiar Orientación</string>
+    <string name="change_color_title_option">Cambiar Color del Título</string>
+
+    <string name="select_color">Seleccione el color</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

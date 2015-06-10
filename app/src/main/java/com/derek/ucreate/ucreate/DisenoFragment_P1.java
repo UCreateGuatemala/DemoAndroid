@@ -27,12 +27,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Created by Boris on 09/06/2015.
- */
 public class DisenoFragment_P1 extends Fragment {
 
     private RelativeLayout  CatalogBackground;
@@ -43,8 +44,7 @@ public class DisenoFragment_P1 extends Fragment {
     private TextView        logoText;
     private final int       PICK_IMAGE_REQUEST=1;
     private final int       PIC_CROP = 2;
-    private String          backgroundColor="white";
-    private String          textColor="black";
+    private String          backgroundColor="white",textColor="black",logoTextColor="black";
     private TextView        tvItem1, tvItem2;
 
 
@@ -55,6 +55,7 @@ public class DisenoFragment_P1 extends Fragment {
         //Se agregarn los valores para los siguientes fragments (especialmente el 3ero)
         getActivity().getIntent().putExtra("backgroundColor",backgroundColor);
         getActivity().getIntent().putExtra("textColor",textColor);
+        getActivity().getIntent().putExtra("logoTextColor",logoTextColor);
 
         logoIcon = (ImageView) v.findViewById(R.id.imageViewCatalog1);
         logoText = (TextView) v.findViewById(R.id.textViewCatalog1);
@@ -65,7 +66,7 @@ public class DisenoFragment_P1 extends Fragment {
         btnBackground = (Button) v.findViewById(R.id.buttonCatalogBackground);
         btnText = (Button) v.findViewById(R.id.buttonCatalogTextColor);
 
-        CatalogBackground = (RelativeLayout) v.findViewById(R.id.layoutCatalog_1);
+        CatalogBackground = (RelativeLayout) v.findViewById(R.id.CatalogBackground);
         LogoLayout = (RelativeLayout) v.findViewById(R.id.RelativeLayoutCatalog1Up);
 
         tvItem1 = (TextView) v.findViewById(R.id.textViewItem1);
@@ -109,134 +110,12 @@ public class DisenoFragment_P1 extends Fragment {
 
         btnBackground.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(getActivity().getApplicationContext(), v);
-                popup.inflate(R.menu.menu_change_colors);
-                Object menuHelper;
-                Class[] argTypes;
-                try {
-                    Field fMenuHelper = PopupMenu.class.getDeclaredField("mPopup");
-                    fMenuHelper.setAccessible(true);
-                    menuHelper = fMenuHelper.get(popup);
-                    argTypes = new Class[] { boolean.class };
-                    menuHelper.getClass().getDeclaredMethod("setForceShowIcon", argTypes).invoke(menuHelper, true);
-                } catch (Exception e) {
-                    popup.show();
-                    return;
-                }
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.orange:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.orange));
-                                backgroundColor = "orange";
-                                return true;
-                            case R.id.red:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.red));
-                                backgroundColor = "red";
-                                return true;
-                            case R.id.yellow:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.yellow));;
-                                backgroundColor = "yellow";
-                                return true;
-                            case R.id.green:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.green));
-                                backgroundColor = "green";
-                                return true;
-                            case R.id.blue:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.blue));
-                                backgroundColor = "blue";
-                                return true;
-                            case R.id.purple:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.purple));
-                                backgroundColor = "purple";
-                                return true;
-                            case R.id.white:
-                                CatalogBackground.setBackgroundColor(getResources().getColor(R.color.white));
-                                backgroundColor = "white";
-                                return true;
-                            default:
-                                return false;
-                        }
-                    };
-                });
-                popup.show();
+                selectColors("BackgroundColor");
             }
         });
         btnText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(getActivity().getApplicationContext(), v);
-                popup.inflate(R.menu.menu_change_text_color);
-                Object menuHelper;
-                Class[] argTypes;
-                try {
-                    Field fMenuHelper = PopupMenu.class.getDeclaredField("mPopup");
-                    fMenuHelper.setAccessible(true);
-                    menuHelper = fMenuHelper.get(popup);
-                    argTypes = new Class[] { boolean.class };
-                    menuHelper.getClass().getDeclaredMethod("setForceShowIcon", argTypes).invoke(menuHelper, true);
-                } catch (Exception e) {
-                    popup.show();
-                    return;
-                }
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.orange:
-                                tvItem1.setTextColor(getResources().getColor(R.color.orange));
-                                tvItem2.setTextColor(getResources().getColor(R.color.orange));
-                                logoText.setTextColor(getResources().getColor(R.color.orange));
-                                textColor = "orange";
-                                return true;
-                            case R.id.red:
-                                tvItem1.setTextColor(getResources().getColor(R.color.red));
-                                tvItem2.setTextColor(getResources().getColor(R.color.red));
-                                logoText.setTextColor(getResources().getColor(R.color.red));
-                                textColor = "red";
-                                return true;
-                            case R.id.yellow:
-                                tvItem1.setTextColor(getResources().getColor(R.color.yellow));
-                                tvItem2.setTextColor(getResources().getColor(R.color.yellow));
-                                logoText.setTextColor(getResources().getColor(R.color.yellow));
-                                textColor = "yellow";
-                                return true;
-                            case R.id.green:
-                                tvItem1.setTextColor(getResources().getColor(R.color.green));
-                                tvItem2.setTextColor(getResources().getColor(R.color.green));
-                                logoText.setTextColor(getResources().getColor(R.color.green));
-                                textColor = "green";
-                                return true;
-                            case R.id.blue:
-                                tvItem1.setTextColor(getResources().getColor(R.color.blue));
-                                tvItem2.setTextColor(getResources().getColor(R.color.blue));
-                                logoText.setTextColor(getResources().getColor(R.color.blue));
-                                textColor = "blue";
-                                return true;
-                            case R.id.purple:
-                                tvItem1.setTextColor(getResources().getColor(R.color.purple));
-                                tvItem2.setTextColor(getResources().getColor(R.color.purple));
-                                logoText.setTextColor(getResources().getColor(R.color.purple));
-                                textColor = "purple";
-                                return true;
-                            case R.id.white:
-                                tvItem1.setTextColor(getResources().getColor(R.color.white));
-                                tvItem2.setTextColor(getResources().getColor(R.color.white));
-                                logoText.setTextColor(getResources().getColor(R.color.white));
-                                textColor = "white";
-                                return true;
-                            case R.id.black:
-                                tvItem1.setTextColor(getResources().getColor(R.color.black));
-                                tvItem2.setTextColor(getResources().getColor(R.color.black));
-                                logoText.setTextColor(getResources().getColor(R.color.black));
-                                textColor = "white";
-                                return true;
-                            default:
-                                return false;
-                        }
-                    };
-                });
-                popup.show();
+                selectColors("TextColor");
             }
         });
         return v;
@@ -285,9 +164,9 @@ public class DisenoFragment_P1 extends Fragment {
     class ClickListenerLogo implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            CharSequence options[] = new CharSequence[] {getResources().getString(R.string.change_logo_option),getResources().getString(R.string.change_title_option),getResources().getString(R.string.change_orientation_option)};
+            CharSequence options[] = new CharSequence[] {getResources().getString(R.string.change_logo_option),getResources().getString(R.string.change_title_option),getResources().getString(R.string.change_orientation_option),getResources().getString(R.string.change_color_title_option)};
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(R.string.change_options);
+            builder.setTitle(R.string.edit_logo);
             builder.setItems(options, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -295,8 +174,10 @@ public class DisenoFragment_P1 extends Fragment {
                         selectImage(true);
                     } else if (i == 1) {
                         showPromtTitle(true);
-                    } else {
+                    } else if (i==2) {
                         selectOrientation();
+                    } else{
+                        selectColors("TitleColor");
                     }
                 }
             }).show();
@@ -343,6 +224,39 @@ public class DisenoFragment_P1 extends Fragment {
         }
     }
 
+    public void selectColors(final String type){
+        ColorPickerDialogBuilder
+                .with(getActivity())
+                .showColorPreview(true)
+                .setTitle(getResources().getString(R.string.select_color))
+                .initialColor(getResources().getColor(R.color.green))
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .density(10)
+                .setPositiveButton(getResources().getString(R.string.accept), new ColorPickerClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                        if (type.equals("TextColor")) {
+                            tvItem1.setTextColor(selectedColor);
+                            tvItem2.setTextColor(selectedColor);
+                            textColor = "" + selectedColor;
+                        } else if (type.equals("BackgroundColor")) {
+                            CatalogBackground.setBackgroundColor(selectedColor);
+                            backgroundColor = selectedColor + "";
+                        } else if (type.equals("TitleColor")) {
+                            logoText.setTextColor(selectedColor);
+                            logoTextColor = ""+selectedColor;
+                        }
+                    }
+                })
+                .setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .build()
+                .show();
+    }
+
     public void selectOrientation(){
         CharSequence orientation[] = new CharSequence[] {getResources().getString(R.string.left), getResources().getString(R.string.center), getResources().getString(R.string.right)};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -352,6 +266,12 @@ public class DisenoFragment_P1 extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 RelativeLayout.LayoutParams paramsIcon = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 RelativeLayout.LayoutParams paramsText = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                Resources r = getActivity().getResources();
+                int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, r.getDisplayMetrics());
+                paramsIcon.setMargins(px, px, px, px);
+                logoText.setTextSize(18);
+
                 if (i == 0) {
                     LogoLayout.removeAllViews();
                     paramsIcon.addRule(RelativeLayout.CENTER_VERTICAL, logoIcon.getId());
@@ -359,9 +279,12 @@ public class DisenoFragment_P1 extends Fragment {
                     paramsText.addRule(RelativeLayout.RIGHT_OF, logoIcon.getId());
                 } else if (i == 1) {
                     LogoLayout.removeAllViews();
-                    paramsIcon.addRule(RelativeLayout.CENTER_IN_PARENT, logoIcon.getId());
+                    paramsIcon.addRule(RelativeLayout.CENTER_HORIZONTAL, logoIcon.getId());
                     paramsText.addRule(RelativeLayout.BELOW, logoIcon.getId());
-                    paramsText.addRule(RelativeLayout.CENTER_IN_PARENT, logoText.getId());
+                    paramsText.addRule(RelativeLayout.CENTER_HORIZONTAL, logoText.getId());
+                    logoText.setTextSize(15);
+                    int newpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, r.getDisplayMetrics());
+                    paramsIcon.setMargins(px, newpx, px, px);
                 } else {
                     LogoLayout.removeAllViews();
                     paramsIcon.addRule(RelativeLayout.CENTER_VERTICAL, logoIcon.getId());
@@ -370,13 +293,10 @@ public class DisenoFragment_P1 extends Fragment {
                     paramsText.addRule(RelativeLayout.LEFT_OF, logoIcon.getId());
                 }
 
-                Resources r = getActivity().getResources();
-                int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, r.getDisplayMetrics());
-                paramsIcon.setMargins(px, px, px, px);
-
                 LogoLayout.addView(logoIcon, paramsIcon);
                 LogoLayout.addView(logoText, paramsText);
-                btnLogo.setEnabled(false);
+                btnLogo.setText(R.string.edit_logo);
+                btnLogo.setOnClickListener(new ClickListenerLogo());
             }
         }).show();
     }
@@ -392,11 +312,11 @@ public class DisenoFragment_P1 extends Fragment {
     public void showPromtTitle(final boolean change){
         View promptTitleView = View.inflate(getActivity(),R.layout.title_dialog,null);
         final EditText logoTextPrompt = (EditText) promptTitleView.findViewById(R.id.etTextLogo);
-        logoTextPrompt.setHint(R.string.enter_logo_title);
+        logoTextPrompt.setText(R.string.app_name);
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setView(promptTitleView);
         dialog.setTitle(R.string.logo_title);
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 logoText.setText(logoTextPrompt.getText().toString());
@@ -405,11 +325,12 @@ public class DisenoFragment_P1 extends Fragment {
                 }
             }
         });
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                logoText.setText("UCreate");
-                btnLogo.setEnabled(false);
+            public void onCancel(DialogInterface dialogInterface) {
+                logoText.setText(R.string.app_name);
+                btnLogo.setText(R.string.edit_logo);
+                btnLogo.setOnClickListener(new ClickListenerLogo());
             }
         });
         dialog.show();
