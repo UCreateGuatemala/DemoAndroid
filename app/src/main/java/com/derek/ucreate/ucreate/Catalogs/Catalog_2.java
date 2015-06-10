@@ -1,4 +1,4 @@
-package com.derek.ucreate.ucreate;
+package com.derek.ucreate.ucreate.Catalogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
+import com.derek.ucreate.ucreate.R;
 
 import java.lang.reflect.Field;
 

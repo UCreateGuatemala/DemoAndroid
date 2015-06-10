@@ -1,6 +1,5 @@
 package com.derek.ucreate.ucreate;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.derek.ucreate.ucreate.Catalogs.Catalog_2;
+import com.derek.ucreate.ucreate.Catalogs.Catalog_3;
+import com.derek.ucreate.ucreate.Catalogs.Catalog_4;
+import com.derek.ucreate.ucreate.Catalogs.Catalog_1;
 
 import java.util.Locale;
 
@@ -174,7 +178,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         public static Fragment newInstance(int sectionNumber) {
             Fragment fragment = null;
             if(sectionNumber==1){
-                fragment = new DisenoFragment_P1();
+                fragment = new Catalog_1();
             }
             else if(sectionNumber==2){
                 fragment = new Catalog_2();

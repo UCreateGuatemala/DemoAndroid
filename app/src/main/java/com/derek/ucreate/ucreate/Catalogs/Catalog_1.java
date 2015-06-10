@@ -1,4 +1,4 @@
-package com.derek.ucreate.ucreate;
+package com.derek.ucreate.ucreate.Catalogs;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -27,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.derek.ucreate.ucreate.R;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
@@ -34,7 +35,7 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class DisenoFragment_P1 extends Fragment {
+public class Catalog_1 extends Fragment {
 
     private RelativeLayout  CatalogBackground;
     private RelativeLayout  LogoLayout;

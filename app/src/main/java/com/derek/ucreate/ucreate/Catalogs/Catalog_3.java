@@ -1,4 +1,4 @@
-package com.derek.ucreate.ucreate;
+package com.derek.ucreate.ucreate.Catalogs;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.derek.ucreate.ucreate.R;
 
 /**
  * Created by Derek on 5/27/2015.

@@ -1,4 +1,4 @@
-package com.derek.ucreate.ucreate;
+package com.derek.ucreate.ucreate.Main_Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.derek.ucreate.ucreate.CatalogActivity;
+import com.derek.ucreate.ucreate.R;
 
 /**
  * Created by Derek on 5/12/2015.

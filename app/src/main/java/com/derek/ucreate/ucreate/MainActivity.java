@@ -11,13 +11,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.derek.ucreate.ucreate.Main_Fragments.FirstFragment;
+import com.derek.ucreate.ucreate.Main_Fragments.SecondFragment;
+import com.derek.ucreate.ucreate.Main_Fragments.ThirdFragment;
 
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
