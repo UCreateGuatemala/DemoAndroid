@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/layoutCatalog_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff29cca5">
 
-</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayoutCatalog1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="Crea tu app bla bla frase deawevo"
+            android:id="@+id/textView"
+            android:textSize="20dp"
+            android:layout_weight="0.60"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="Contáctanos"
+            android:id="@+id/buttonCatalogCatalogContactUs"
+            android:layout_weight="0.40"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/linearLayoutCatalog1"
+        android:id="@+id/CatalogBackground">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/RelativeLayoutCatalog1Up">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:id="@+id/imageViewCatalog1"/>
+            <TextView
+                android:id="@+id/textViewCatalog1"
+                android:layout_toRightOf="@id/imageViewCatalog1"
+                android:layout_toEndOf="@id/imageViewCatalog1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="18dp"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/RelativeLayoutCatalogMain"
+            android:layout_below="@+id/RelativeLayoutCatalog1Up">
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
