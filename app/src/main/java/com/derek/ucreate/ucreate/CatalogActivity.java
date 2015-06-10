@@ -145,13 +145,13 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
             Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return "Paso 1";
+                    return getResources().getString(R.string.step_1);
                 case 1:
-                    return "Paso 2";
+                    return getResources().getString(R.string.step_2);
                 case 2:
-                    return "Paso 3";
+                    return getResources().getString(R.string.step_3);
                 case 3:
-                    return "Paso 4";
+                    return getResources().getString(R.string.step_4);
             }
             return null;
         }

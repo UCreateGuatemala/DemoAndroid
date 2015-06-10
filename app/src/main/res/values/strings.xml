@@ -82,6 +82,10 @@
     <string name="facebook">Síguenos en Facebook:</string>
     <string name="twitter">Síguenos en Twitter:</string>
 
+    <string name="step_1">1. Diseño</string>
+    <string name="step_2">2. Tipo Catálogo</string>
+    <string name="step_3">3. Configuración</string>
+    <string name="step_4">4. Vista Previa</string>
 
     <string name="phone_content">+502-40112305</string>
     <string name="email_content">ucreatesa@hotmail.com</string>
