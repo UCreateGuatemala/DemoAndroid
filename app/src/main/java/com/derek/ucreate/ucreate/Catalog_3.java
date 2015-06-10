@@ -19,7 +19,7 @@ public class Catalog_3 extends Fragment implements SeekBar.OnSeekBarChangeListen
     SeekBar sbCategory, sbProducts;
     TextView tvCategory, tvProducts;
     CheckBox cbRating, cbDescription, cbReviews, cbBuyButton;
-    int category = 4, products = 20;
+    int category = 2, products = 16;
     int progressCategory = 1, progressProducts = 1;
     Boolean rating = false, description = false, reviews =  false, buyButton = false;
 
