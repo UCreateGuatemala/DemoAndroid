@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layoutCatalog_1"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff29cca5">
 
@@ -19,28 +21,21 @@
             android:layout_height="fill_parent"
             android:text="Color de fondo"
             android:id="@+id/buttonCatalogBackground"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.33"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="Agregar logo"
             android:id="@+id/buttonCatalogNewLogo"
-            android:layout_weight="0.25"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:text="Agregar Título"
-            android:id="@+id/buttonCatalogNewTitle"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.33"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:text="Color Texto"
             android:id="@+id/buttonCatalogTextColor"
-            android:layout_weight="0.25"/>
+            android:layout_weight="0.33"/>
         </LinearLayout>
 
     <RelativeLayout
@@ -55,7 +50,7 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="65dp"
+            android:layout_height="70dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/RelativeLayoutCatalog1Up">
@@ -63,79 +58,15 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="3dp"
                 android:id="@+id/imageViewCatalog1"/>
             <TextView
                 android:id="@+id/textViewCatalog1"
                 android:layout_toRightOf="@id/imageViewCatalog1"
-                android:layout_width="match_parent"
+                android:layout_toEndOf="@id/imageViewCatalog1"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:text=""/>
-
-            <!--LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/imageViewCatalog1Position1"
-                    />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text=""
-                    android:id="@+id/textViewCatalog1Position1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/imageViewCatalog1Position2"/>
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text=""
-                    android:id="@+id/textViewCatalog1Position2" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text=""
-                    android:id="@+id/textViewCatalog1Position3" />
-
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/imageViewCatalog1Position3"/>
-            </LinearLayout-->
-
+                android:gravity="center"/>
         </RelativeLayout>
 
         <LinearLayout

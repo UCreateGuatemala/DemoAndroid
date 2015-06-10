@@ -91,4 +91,17 @@
     <string name="change_background">Cambiar el color de fondo</string>
     <string name="title_activity_user_catalog">UserCatalogActivity</string>
 
+    <string name="logo_title">Título del logo</string>
+    <string name="enter_logo_title">Escriba el título del logo..</string>
+    <string name="orientation">Orietación</string>
+    <string name="enter_orientation">Seleccione la orientación</string>
+    <string name="left">Izquierda</string>
+    <string name="center">Centrado</string>
+    <string name="right">Derecha</string>
+
+    <string name="change_options">Cambiar</string>
+    <string name="change_logo_option">Cambiar Logo</string>
+    <string name="change_title_option">Cambiar Título Logo</string>
+    <string name="change_orientation_option">Cambiar Orientación</string>
+
 </resources>

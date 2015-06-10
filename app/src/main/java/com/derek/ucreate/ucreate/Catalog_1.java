@@ -1,6 +1,5 @@
 package com.derek.ucreate.ucreate;
 
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +28,7 @@ import java.lang.reflect.Field;
 public class Catalog_1 extends Fragment implements View.OnTouchListener, View.OnDragListener{
 
         RelativeLayout CatalogBackground;
-        Button btnBackground, btnLogo, btnTitle, btnText;
+        Button btnBackground, btnLogo, btnText;
         ImageView ivPosition1, ivPosition2, ivPosition3;
         TextView tvPosition1, tvPosition2, tvPosition3, tvItem1, tvItem2;
         int logoPosition = 0, titlePosition = 0;
@@ -47,7 +46,6 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
             CatalogBackground = (RelativeLayout) view.findViewById(R.id.CatalogBackground);
             btnLogo = (Button) view.findViewById(R.id.buttonCatalogNewLogo);
             btnBackground = (Button) view.findViewById(R.id.buttonCatalogBackground);
-            btnTitle = (Button) view.findViewById(R.id.buttonCatalogNewTitle);
             btnText = (Button) view.findViewById(R.id.buttonCatalogTextColor);
 
             /*ivPosition1 = (ImageView) view.findViewById(R.id.imageViewCatalog1Position1);
@@ -122,18 +120,6 @@ public class Catalog_1 extends Fragment implements View.OnTouchListener, View.On
                         };
                     });
                     popup.show();
-                }
-            });
-
-            btnTitle.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v){
-                    Dialog dialog = new Dialog(getActivity());
-                    dialog.setContentView(R.layout.title_dialog);
-                    dialog.setTitle("Custom Dialog");
-                    dialog.show();
-                    alreadyTitle = true;
-                    titlePosition = 1;
-                    tvPosition1.setText("UCreate");
                 }
             });
 
