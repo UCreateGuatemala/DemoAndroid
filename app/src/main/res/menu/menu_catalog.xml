@@ -2,6 +2,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.derek.ucreate.ucreate.CatalogActivity">
-    <item android:id="@+id/action_settings" android:title="Vista Previa"
-        android:orderInCategory="100" app:showAsAction="ifRoom" />
 </menu>
