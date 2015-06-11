@@ -69,10 +69,4 @@ public class Catalog_2 extends Fragment {
         });
         return view;
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Toast.makeText(getActivity(), getActivity().getIntent().getStringExtra("backgroundColor"), Toast.LENGTH_LONG).show();
-    }
 }

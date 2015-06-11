@@ -2,32 +2,53 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Boris\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-afed7872e3f1b6268e8273ad8f2de50c2211ec8b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-e9ffb3ba2ee78d5bac4bc7227961016114278a91.jar" />
-    </item>
-    <item
-        jar="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-cc99920394fd06f14d829226733e8103db24f498.jar" />
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-4afb8baf44d3ac3a8ef0dacccdff7a20ccf62e99.jar" />
     </item>
     <item
-        jar="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-6a7f51ba3a26bbdd61244a042e55bee05f99825e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\library-2.4.0-66e56467d99e9535213db99dd121e79206b7815e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-ffd14cc50b8a26b38a1f8c8ff051e3fda340982e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.rengwuxian.materialedittext\library\2.0.3\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="052802ed198178e7133de387fbc87d3f2998482a">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-55fed27049122f453d9f1fc62923f1c365087c65.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.github.QuadFlask\colorpicker\0.0.9\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="93aec1a27134f2d5fd94631996b3b3e1265df825">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-1a53ab9b1327ee602353df48c3c713a4a544f889.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="C:\Users\Boris\Documents\UCreate\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-c8613c5e5a913e29e290eb2f6463cf9bd7a9b2bd.jar" />
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-524dd5c2ff89c3162714c02c0c6440e2a792bb3f.jar" />
     </item>
 
 </items>

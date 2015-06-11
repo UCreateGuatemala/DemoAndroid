@@ -12,8 +12,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -45,7 +47,7 @@ public class Catalog_1 extends Fragment {
     private TextView        logoText;
     private final int       PICK_IMAGE_REQUEST=1;
     private final int       PIC_CROP = 2;
-    private String          backgroundColor="white",textColor="black",logoTextColor="black";
+    private int             backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216;
     private TextView        tvItem1, tvItem2;
 
 
@@ -53,15 +55,14 @@ public class Catalog_1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.catalog_1,container,false);
 
-        //Se agregarn los valores para los siguientes fragments (especialmente el 3ero)
-        getActivity().getIntent().putExtra("backgroundColor",backgroundColor);
-        getActivity().getIntent().putExtra("textColor",textColor);
-        getActivity().getIntent().putExtra("logoTextColor",logoTextColor);
-
         logoIcon = (ImageView) v.findViewById(R.id.imageViewCatalog1);
         logoText = (TextView) v.findViewById(R.id.textViewCatalog1);
         logoIcon.setOnClickListener(new ClickListenerLogo());
         logoText.setOnClickListener(new ClickListenerLogo());
+
+        getActivity().getIntent().putExtra("backgroundColor",backgroundColor);
+        getActivity().getIntent().putExtra("textColor",textColor);
+        getActivity().getIntent().putExtra("logoTextColor",logoTextColor);
 
         btnLogo = (Button) v.findViewById(R.id.buttonCatalogNewLogo);
         btnBackground = (Button) v.findViewById(R.id.buttonCatalogBackground);
@@ -152,16 +153,6 @@ public class Catalog_1 extends Fragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     class ClickListenerLogo implements View.OnClickListener{
         @Override
         public void onClick(View view) {
@@ -236,16 +227,20 @@ public class Catalog_1 extends Fragment {
                 .setPositiveButton(getResources().getString(R.string.accept), new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                        Log.i("Color", selectedColor + "");
                         if (type.equals("TextColor")) {
                             tvItem1.setTextColor(selectedColor);
                             tvItem2.setTextColor(selectedColor);
-                            textColor = "" + selectedColor;
+                            getActivity().getIntent().putExtra("textColor",selectedColor);
+                            textColor = selectedColor;
                         } else if (type.equals("BackgroundColor")) {
                             CatalogBackground.setBackgroundColor(selectedColor);
-                            backgroundColor = selectedColor + "";
+                            getActivity().getIntent().putExtra("backgroundColor",selectedColor);
+                            backgroundColor = selectedColor;
                         } else if (type.equals("TitleColor")) {
                             logoText.setTextColor(selectedColor);
-                            logoTextColor = ""+selectedColor;
+                            getActivity().getIntent().putExtra("logoTextColor",selectedColor);
+                            logoTextColor = selectedColor;
                         }
                     }
                 })

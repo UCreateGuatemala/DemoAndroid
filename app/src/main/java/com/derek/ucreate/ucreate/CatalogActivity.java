@@ -8,11 +8,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.derek.ucreate.ucreate.Catalogs.Catalog_2;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_3;
@@ -58,6 +60,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // When swiping between different sections, select the corresponding
@@ -66,6 +69,14 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+                if (position==3){
+                    int backgroundColor = getIntent().getIntExtra("backgroundColor", 0);
+                    //Bundle b = new Bundle();
+                    //b.putInt("backgroundColor",backgroundColor);
+                    //Fragment f = mSectionsPagerAdapter.getItem(3);
+                    //f.onCreate(b);
+                    Log.i("Background",backgroundColor+"");
+                }
                 actionBar.setSelectedNavigationItem(position);
             }
         });
@@ -170,26 +181,23 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
-
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
         public static Fragment newInstance(int sectionNumber) {
-            Fragment fragment = null;
             if(sectionNumber==1){
-                fragment = new Catalog_1();
+                return new Catalog_1();
             }
             else if(sectionNumber==2){
-                fragment = new Catalog_2();
+                return new Catalog_2();
             }
             else if(sectionNumber==3){
-                fragment = new Catalog_3();
+                return new Catalog_3();
             }
-            else if(sectionNumber==4){
-                fragment = new Catalog_4();
+            else{
+                return new Catalog_4();
             }
-            return fragment;
         }
 
         public PlaceholderFragment() {
