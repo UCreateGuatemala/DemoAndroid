@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/solologo"
-    android:scrollbars="horizontal">
+    android:scrollbars="horizontal"
+    android:alpha="50">
 
     <LinearLayout
         android:orientation="vertical"
@@ -84,6 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="@string/punctuality_content"
                 android:id="@+id/textViewUsValuesPunctualityContent"
                 android:textSize="15sp"
@@ -104,6 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="@string/honesty_content"
                 android:id="@+id/textViewUsValuesHonestyContent"
                 android:textSize="15sp"
@@ -124,6 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="@string/quality_content"
                 android:id="@+id/textViewUsValuesQualityContent"
                 android:textSize="15sp"
@@ -144,6 +148,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="@string/passion_content"
                 android:id="@+id/textViewUsValuesPassionContent"
                 android:textSize="15sp"
@@ -164,6 +169,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="@string/empathy_content"
                 android:id="@+id/textViewUsValuesEmpathyContent"
                 android:textSize="15sp"

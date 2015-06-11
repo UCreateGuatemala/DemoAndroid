@@ -46,11 +46,8 @@
     <string name="tab_button_contactUs">Contáctanos</string>
 
     <string name="demo_title">Crea tu app: DEMO</string>
-    <string name="demo_inst">A continuación se presenta una demostración de dos plantillas de
-        aplicaciones que ofrecemos. Para comenzar seleccione el tipo de plantilla que desee
-        experimentar. Luego interactúe con las distintas funciones que se ofrecen en la demostración.
-        Si te gusta como se ve o quisieras agregarle más opciones de las que se ofrecen en esta
-        demostración, no dudes en contactarnos y nosotros te daremos el resultado que estás buscando.
+    <string name="demo_inst">Aquí podrás descubrir la gran oportunidad que tienes y puedes iniciar con nosotros.
+        Empecemos: Sigue estos sencillos pasos para crear tu modelo gráfico de negocio.
     </string>
     <string name="demo_select">Selecciona tu plantilla:</string>
 
