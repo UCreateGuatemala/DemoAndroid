@@ -14,12 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.derek.ucreate.ucreate.Catalogs.Catalog_1;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_2;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_3;
-import com.derek.ucreate.ucreate.Catalogs.Catalog_4;
-import com.derek.ucreate.ucreate.Catalogs.Catalog_1;
 
 import java.util.Locale;
 
@@ -60,7 +58,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // When swiping between different sections, select the corresponding
@@ -152,7 +150,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 4;
+            return 3;
         }
 
         @Override
@@ -165,8 +163,6 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
                     return getResources().getString(R.string.step_2);
                 case 2:
                     return getResources().getString(R.string.step_3);
-                case 3:
-                    return getResources().getString(R.string.step_4);
             }
             return null;
         }
@@ -192,11 +188,8 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
             else if(sectionNumber==2){
                 return new Catalog_2();
             }
-            else if(sectionNumber==3){
-                return new Catalog_3();
-            }
             else{
-                return new Catalog_4();
+                return new Catalog_3();
             }
         }
 
