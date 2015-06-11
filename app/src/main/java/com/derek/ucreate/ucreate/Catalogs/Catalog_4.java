@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.derek.ucreate.ucreate.R;
 
@@ -18,7 +20,7 @@ import com.derek.ucreate.ucreate.R;
  */
 public class Catalog_4 extends Fragment {
 
-    int position = 2;
+    int finalPosition = 1;
     String image;
     String titleText = "UCreate";
     int titleColor = 1;
@@ -41,34 +43,50 @@ public class Catalog_4 extends Fragment {
         logoLayout = (RelativeLayout) view.findViewById(R.id.RelativeLayoutCatalogTitle);
         mainLayout = (RelativeLayout) view.findViewById(R.id.RelativeLayoutCatalogMain);
 
-        logoPlusTitle(position,image,titleText,titleColor);
+        logoPlusTitle();
         templateType(template);
         return view;
     }
 
-    private void logoPlusTitle(int position, String image, String titleText, int titleColor) {
+    private void logoPlusTitle() {
         ImageView logoIcon = new ImageView(getActivity().getApplicationContext());
-        logoIcon.setImageResource(R.drawable.solologo);
+        TextView logoText = new TextView(getActivity().getApplicationContext());
+        logoIcon.setId(0b0);
+        logoText.setId();
+        logoIcon.setImageResource(R.drawable.item_1);
+        logoText.setText("UCreate");
         RelativeLayout.LayoutParams paramsIcon = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        //RelativeLayout.LayoutParams paramsText = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams paramsText = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-        /*Resources r = getActivity().getResources();
+        Resources r = getActivity().getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, r.getDisplayMetrics());
         paramsIcon.setMargins(px, px, px, px);
-        logoText.setTextSize(18);*/
-        if (position==1){
-
-        }else if (position==2){
+        logoText.setTextSize(18);
+        if (finalPosition==1){
+            Toast.makeText(getActivity().getApplicationContext(), "1", Toast.LENGTH_SHORT).show();
             logoLayout.removeAllViews();
             paramsIcon.addRule(RelativeLayout.CENTER_VERTICAL, logoIcon.getId());
-            // paramsText.addRule(RelativeLayout.CENTER_VERTICAL, logoText.getId());
-            // paramsText.addRule(RelativeLayout.RIGHT_OF, logoIcon.getId());
-        }else if (position==3){
-
+            paramsText.addRule(RelativeLayout.CENTER_VERTICAL, logoText.getId());
+            paramsText.addRule(RelativeLayout.RIGHT_OF, logoIcon.getId());
+        }else if (finalPosition==2){
+            Toast.makeText(getActivity().getApplicationContext(), "2", Toast.LENGTH_SHORT).show();
+            logoLayout.removeAllViews();
+            paramsIcon.addRule(RelativeLayout.CENTER_HORIZONTAL, logoIcon.getId());
+            paramsText.addRule(RelativeLayout.BELOW, logoIcon.getId());
+            paramsText.addRule(RelativeLayout.CENTER_HORIZONTAL, logoText.getId());
+            logoText.setTextSize(15);
+            int newpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, r.getDisplayMetrics());
+            paramsIcon.setMargins(px, newpx, px, px);
         }else{
-
+            Toast.makeText(getActivity().getApplicationContext(), "3", Toast.LENGTH_SHORT).show();
+            logoLayout.removeAllViews();
+            paramsIcon.addRule(RelativeLayout.CENTER_VERTICAL, logoIcon.getId());
+            paramsText.addRule(RelativeLayout.CENTER_VERTICAL, logoText.getId());
+            paramsIcon.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, logoIcon.getId());
+            paramsText.addRule(RelativeLayout.LEFT_OF, logoIcon.getId());
         }
         logoLayout.addView(logoIcon, paramsIcon);
+        logoLayout.addView(logoText, paramsText);
     }
 
     private void templateType(int template) {
