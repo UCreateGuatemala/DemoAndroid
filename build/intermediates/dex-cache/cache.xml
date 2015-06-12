@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-0c0323813b4004b9195ee6aeac1dc711f8b4e563.jar" />
+    </item>
+    <item
         jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -9,11 +16,25 @@
         <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-4afb8baf44d3ac3a8ef0dacccdff7a20ccf62e99.jar" />
     </item>
     <item
-        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-6a7f51ba3a26bbdd61244a042e55bee05f99825e.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-5a34291e1c8e07f2f9867b4b3169e4d22306a08e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\org.lucasr.twowayview\twowayview\0.1.4\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a2a997b75e4c94dac7051557be6b95a06566291">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-289c837690a509ee3700159dd3393716b67cdfb2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-45448bad723b9eae848a1180ba70154993944274.jar" />
     </item>
     <item
         jar="C:\Users\Boris\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
@@ -23,11 +44,11 @@
         <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\library-2.4.0-66e56467d99e9535213db99dd121e79206b7815e.jar" />
     </item>
     <item
-        jar="C:\Users\Boris\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jar="C:\Users\Boris\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-ffd14cc50b8a26b38a1f8c8ff051e3fda340982e.jar" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-1b43d02acb12927c5f0135d2d1443643dad42d1f.jar" />
     </item>
     <item
         jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.rengwuxian.materialedittext\library\2.0.3\classes.jar"
@@ -44,11 +65,18 @@
         <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-1a53ab9b1327ee602353df48c3c713a4a544f889.jar" />
     </item>
     <item
-        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
-        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-524dd5c2ff89c3162714c02c0c6440e2a792bb3f.jar" />
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-ac0e2be22a5cd94f3a1ed45abc40d2024d3bd254.jar" />
+    </item>
+    <item
+        jar="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.yalantis\flipviewpager\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="961d79128f594dda45688dba408e9eb27cb55724">
+        <dex dex="C:\Users\Boris\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-c6c46c337b6ce55e0a381466e53cea0718ae0bdb.jar" />
     </item>
 
 </items>

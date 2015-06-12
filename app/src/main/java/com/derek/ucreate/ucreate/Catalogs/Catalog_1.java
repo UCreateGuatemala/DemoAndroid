@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.derek.ucreate.ucreate.R;
 
@@ -24,7 +23,9 @@ public class Catalog_1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.catalog_2, container, false);
+        View view = inflater.inflate(R.layout.catalog_1, container, false);
+
+        getActivity().getIntent().putExtra("Template",template);
 
         ibTemplate1 = (ImageButton) view.findViewById(R.id.imageButtonTemplate1);
         ibTemplate2 = (ImageButton) view.findViewById(R.id.imageButtonTemplate2);
@@ -37,6 +38,7 @@ public class Catalog_1 extends Fragment {
             public void onClick(View v){
                 ivTemplate.setImageResource(R.drawable.template_1);
                 template = 1;
+                getActivity().getIntent().putExtra("Template",template);
             }
         });
 
@@ -44,6 +46,7 @@ public class Catalog_1 extends Fragment {
             public void onClick(View v){
                 ivTemplate.setImageResource(R.drawable.template_2);
                 template = 2;
+                getActivity().getIntent().putExtra("Template",template);
             }
         });
 
@@ -51,6 +54,7 @@ public class Catalog_1 extends Fragment {
             public void onClick(View v){
                 ivTemplate.setImageResource(R.drawable.template_3);
                 template = 3;
+                getActivity().getIntent().putExtra("Template",template);
             }
         });
 
@@ -58,6 +62,7 @@ public class Catalog_1 extends Fragment {
             public void onClick(View v){
                 ivTemplate.setImageResource(R.drawable.template_4);
                 template = 4;
+                getActivity().getIntent().putExtra("Template",template);
             }
         });
 
@@ -65,8 +70,10 @@ public class Catalog_1 extends Fragment {
             public void onClick(View v){
                 ivTemplate.setImageResource(R.drawable.template_5);
                 template = 5;
+                getActivity().getIntent().putExtra("Template",template);
             }
         });
+
         return view;
     }
 }

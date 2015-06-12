@@ -1,5 +1,7 @@
 package com.derek.ucreate.ucreate;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -67,13 +69,10 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                if (position==3){
-                    int backgroundColor = getIntent().getIntExtra("backgroundColor", 0);
-                    //Bundle b = new Bundle();
-                    //b.putInt("backgroundColor",backgroundColor);
-                    //Fragment f = mSectionsPagerAdapter.getItem(3);
-                    //f.onCreate(b);
-                    Log.i("Background",backgroundColor+"");
+                Log.i("Position",position+"");
+                if (position==1){
+                    int typeTemplate = getIntent().getIntExtra("Template",1);
+                    Catalog_2.changeTemplate(CatalogActivity.this,typeTemplate);
                 }
                 actionBar.setSelectedNavigationItem(position);
             }
@@ -110,6 +109,29 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if(id == R.id.showCatalog){
+            Bundle b = getIntent().getExtras();
+
+            int templateType = b.getInt("Template");
+            int backgroundColor = b.getInt("BackgroundColor");
+            int textColor = b.getInt("TextColor");
+            int logoTextColor = b.getInt("LogoTextColor");
+            int orientation = b.getInt("Orientation");
+            String logoName = b.getString("LogoName");
+            Bitmap logo = b.getParcelable("Logo");
+
+            Intent i = new Intent(CatalogActivity.this,ShowCatalogActivity.class);
+
+            i.putExtra("Template",templateType);
+            i.putExtra("BackgroundColor",backgroundColor);
+            i.putExtra("TextColor",textColor);
+            i.putExtra("LogoTextColor",logoTextColor);
+            i.putExtra("LogoName",logoName);
+            i.putExtra("Orientation",orientation);
+            i.putExtra("Logo",logo);
+
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
