@@ -16,11 +16,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.Toast;
 
+import com.derek.ucreate.ucreate.Adapters.PlaceholderFragment;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_1;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_2;
 import com.derek.ucreate.ucreate.Catalogs.Catalog_3;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -69,12 +74,16 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                Log.i("Position",position+"");
                 if (position==1){
-                    int typeTemplate = getIntent().getIntExtra("Template",1);
-                    Catalog_2.changeTemplate(CatalogActivity.this,typeTemplate);
+                    Catalog_2 c2 = (Catalog_2) PlaceholderFragment.getInstance(position);
+                    int typeTemplate = getIntent().getIntExtra("Template",0);
+                    c2.changeTemplate(CatalogActivity.this,typeTemplate);
                 }
                 actionBar.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
         });
 
@@ -160,13 +169,14 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            PlaceholderFragment.setInstances();
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.getInstance(position);
         }
 
         @Override
@@ -189,41 +199,4 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
             return null;
         }
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static Fragment newInstance(int sectionNumber) {
-            if(sectionNumber==1){
-                return new Catalog_1();
-            }
-            else if(sectionNumber==2){
-                return new Catalog_2();
-            }
-            else{
-                return new Catalog_3();
-            }
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_catalog, container, false);
-            return rootView;
-        }
-    }
-
 }

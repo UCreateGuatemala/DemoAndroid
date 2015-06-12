@@ -11,65 +11,56 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.GradientDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.derek.ucreate.ucreate.Models.Item;
+import com.derek.ucreate.ucreate.Adapters.*;
 import com.derek.ucreate.ucreate.R;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
-import org.lucasr.twowayview.TwoWayView;
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Catalog_2 extends Fragment {
 
-    private RelativeLayout  CatalogBackground, LogoLayout;
-    private LinearLayout    LayoutItems;
+    private RelativeLayout  CatalogBackground, LogoLayout, RelativeLayoutItems;
     private boolean         globalChange;
     private ImageView       logoIcon;
     private TextView        logoText;
     private final int       PICK_IMAGE_REQUEST=1;
     private final int       PIC_CROP = 2;
-    private int             backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216, backgroundItemColor=-1;
-    private TextView        tvItem1;
+    private final int       numRows = 2,grayBackgroundColor=-1;
+    private int             backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216, backgroundItemColor=-1, rotation=0,rotationItem=0;
     private List<Item>      items;
     private GridView        gridView;
+    private LinearLayout    LayoutButtonsLeft, LayoutButtonsTop;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.catalog_2,container,false);
 
+        gridView = (GridView) v.findViewById(R.id.ListItems);
         logoIcon = (ImageView) v.findViewById(R.id.imageViewCatalog1);
         logoText = (TextView) v.findViewById(R.id.textViewCatalog1);
         logoIcon.setOnClickListener(new ClickListenerLogo());
@@ -90,17 +81,37 @@ public class Catalog_2 extends Fragment {
             }
         });
         LogoLayout = (RelativeLayout) v.findViewById(R.id.RelativeLayoutCatalog1Up);
-        LayoutItems = (LinearLayout) v.findViewById(R.id.LinearLayoutItems);
+        RelativeLayoutItems = (RelativeLayout) v.findViewById(R.id.RelativeLayoutItems);
+        RelativeLayoutItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectColors("BackgroundColor");
+            }
+        });
+        LayoutButtonsLeft = (LinearLayout) RelativeLayoutItems.findViewById(R.id.LayoutButtonsLeft);
+        LayoutButtonsTop = (LinearLayout) RelativeLayoutItems.findViewById(R.id.LayoutButtonsTop);
 
         items = new ArrayList<>();
-        for (int i=0; i<10; i++){
-            items.add(new Item("asdfasdfasdfasd"+i,20.1, BitmapFactory.decodeResource(getResources(),R.drawable.solologo)));
+        Random r = new Random();
+        for (int i=0; i<4; i++){
+            items.add(new Item("Item "+i,(i+r.nextInt(10))* r.nextInt(5), BitmapFactory.decodeResource(getResources(),R.drawable.solologo)));
         }
 
-        gridView = (GridView) v.findViewById(R.id.ListItems);
-        gridView.setRotation(270);
-        gridView.setNumColumns(2);
-        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor));
+        rotationItem = getActivity().getIntent().getIntExtra("RotationItem",-1);
+        rotation = getActivity().getIntent().getIntExtra("Rotation",-1);
+
+        if (rotationItem==-1){
+            rotationItem = 0;
+            getActivity().getIntent().putExtra("RotationItem",0);
+        }
+        if (rotation==1){
+            rotation = 0;
+            getActivity().getIntent().putExtra("Rotation",0);
+        }
+
+        gridView.setRotation(rotation);
+        gridView.setNumColumns(numRows);
+        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,grayBackgroundColor,rotationItem));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view, int i, long l) {
@@ -153,61 +164,20 @@ public class Catalog_2 extends Fragment {
         }
     }
 
-    public static void changeTemplate(Context context, int type){
-        Toast.makeText(context,"TEMPLATE SELECTED "+type,Toast.LENGTH_SHORT).show();
-        //http://stackoverflow.com/questions/5725745/horizontal-scrolling-grid-view
-        if (type == 0){
-
+    public void changeTemplate(Context context, int type){
+        if (type==3){
+            RelativeLayoutItems.removeView(LayoutButtonsTop);
+            RelativeLayoutItems.addView(LayoutButtonsTop);
+            RelativeLayoutItems.removeView(LayoutButtonsLeft);
         }
-        else if(type == 1){
-
-        }
-        else if(type == 2){
-
-        }
-        else if(type == 3){
-
-        }
-        else if(type == 4){
-
+        else if (type==4){
+            RelativeLayoutItems.removeView(LayoutButtonsLeft);
+            RelativeLayoutItems.addView(LayoutButtonsLeft);
+            RelativeLayoutItems.removeView(LayoutButtonsTop);
         }
         else{
-
-        }
-    }
-
-    class ItemAdapter extends ArrayAdapter<Item> {
-        List<Item> items;
-        Context context;
-        int color;
-        int backgroundColor;
-
-        public ItemAdapter(Context context, int resource, List<Item> objects, int color, int backgroundColor) {
-            super(context, resource, objects);
-            this.context = context;
-            items = objects;
-            this.color = color;
-            this.backgroundColor = backgroundColor;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View v = getActivity().getLayoutInflater().inflate(R.layout.catalog_2_list_items,parent,false);
-            Item i = items.get(position);
-
-            ImageView imageView = (ImageView) v.findViewById(R.id.imageViewItem);
-            TextView textView = (TextView) v.findViewById(R.id.textViewItem);
-
-            imageView.setImageBitmap(i.getImage());
-            textView.setText(i.getName() + "\nQ." + i.getPrice());
-            textView.setTextColor(color);
-            v.setBackgroundColor(backgroundItemColor);
-
-            //http://stackoverflow.com/questions/5725745/horizontal-scrolling-grid-view
-            textView.setRotation(90);
-            imageView.setRotation(90);
-
-            return v;
+            RelativeLayoutItems.removeView(LayoutButtonsTop);
+            RelativeLayoutItems.removeView(LayoutButtonsLeft);
         }
     }
 
@@ -276,9 +246,8 @@ public class Catalog_2 extends Fragment {
     public void selectColors(final String type){
         ColorPickerDialogBuilder
                 .with(getActivity())
-                .showColorPreview(true)
                 .setTitle(getResources().getString(R.string.select_color))
-                .initialColor(getResources().getColor(R.color.green))
+                .initialColor(grayBackgroundColor)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                 .density(10)
                 .setPositiveButton(getResources().getString(R.string.accept), new ColorPickerClickListener() {
@@ -287,10 +256,11 @@ public class Catalog_2 extends Fragment {
                         Log.i("Color", selectedColor + "");
                         if (type.equals("TextColor")) {
                             textColor = selectedColor;
-                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor));
+                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,rotationItem));
                             getActivity().getIntent().putExtra("TextColor",selectedColor);
                         } else if (type.equals("BackgroundColor")) {
                             CatalogBackground.setBackgroundColor(selectedColor);
+                            RelativeLayoutItems.setBackgroundColor(selectedColor);
                             getActivity().getIntent().putExtra("BackgroundColor",selectedColor);
                             backgroundColor = selectedColor;
                         } else if (type.equals("TitleColor")) {
@@ -300,7 +270,7 @@ public class Catalog_2 extends Fragment {
                         }
                         else if (type.equals("BackgroundItemColor")){
                             backgroundItemColor = selectedColor;
-                            gridView.setAdapter(new ItemAdapter(getActivity(), R.layout.catalog_2_list_items, items, textColor, backgroundItemColor));
+                            gridView.setAdapter(new ItemAdapter(getActivity(), R.layout.catalog_2_list_items, items, textColor, backgroundItemColor,rotationItem));
                             getActivity().getIntent().putExtra("BackgroundItemColor",backgroundItemColor);
                         }
                     }
