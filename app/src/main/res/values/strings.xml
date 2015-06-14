@@ -104,10 +104,11 @@
     <string name="change_title_option">Cambiar Título Logo</string>
     <string name="change_orientation_option">Cambiar Orientación</string>
     <string name="change_color_title_option">Cambiar Color del Título</string>
+    <string name="change_card_color_title_option">Cambiar Color de Carta</string>
 
     <string name="edit_item">Editar Item</string>
     <string name="change_color_item_option">Cambiar Color de Texto</string>
-    <string name="change_backgroundcolor_item_option">Cambiar Color de Fondo</string>
+    <string name="change_backgroundcolor_item_option">Cambiar Color del Borde</string>
 
     <string name="group">Grupo</string>
     <string name="select_color">Seleccione el color</string>

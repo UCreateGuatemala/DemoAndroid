@@ -124,16 +124,20 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
 
             int templateType = b.getInt("Template");
             int backgroundColor = b.getInt("BackgroundColor");
+            int backgroundItemColor = b.getInt("BackgroundItemColor");
+            int backgroundCardColor = b.getInt("CardBackgroundColor");
             int textColor = b.getInt("TextColor");
             int logoTextColor = b.getInt("LogoTextColor");
             int orientation = b.getInt("Orientation");
             String logoName = b.getString("LogoName");
-            Bitmap logo = b.getParcelable("Logo");
+            byte[] logo = b.getByteArray("Logo");
 
             Intent i = new Intent(CatalogActivity.this,ShowCatalogActivity.class);
 
             i.putExtra("Template",templateType);
             i.putExtra("BackgroundColor",backgroundColor);
+            i.putExtra("BackgroundItemColor",backgroundItemColor);
+            i.putExtra("CardBackgroundColor",backgroundCardColor);
             i.putExtra("TextColor",textColor);
             i.putExtra("LogoTextColor",logoTextColor);
             i.putExtra("LogoName",logoName);
