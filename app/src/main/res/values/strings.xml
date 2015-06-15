@@ -116,4 +116,9 @@
     <string name="cancel">Cancelar</string>
     <string name="show_catalog">Ver Catálogo</string>
 
+    <string name="BuyButton">Comprar</string>
+    <string name="DescriptionButton">Descripción</string>
+    <string name="RatingButton">Calificación</string>
+    <string name="CommentsButton">Comentarios</string>
+
 </resources>

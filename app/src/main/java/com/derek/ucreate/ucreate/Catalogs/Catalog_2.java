@@ -46,6 +46,7 @@ import java.util.Random;
 public class Catalog_2 extends Fragment {
 
     private RelativeLayout  CatalogBackground, LogoLayout, RelativeLayoutItems;
+    private LinearLayout    LayoutButtonsLeft, LayoutButtonsTop;
     private boolean         globalChange;
     private ImageView       logoIcon;
     private TextView        logoText;
@@ -55,7 +56,6 @@ public class Catalog_2 extends Fragment {
     private int             backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216, backgroundItemColor=-1, rotation=0,rotationItem=0, cardBackgroundColor = -1;
     private List<Item>      items;
     private GridView        gridView;
-    private LinearLayout    LayoutButtonsLeft, LayoutButtonsTop;
     private Bitmap          logo;
 
 

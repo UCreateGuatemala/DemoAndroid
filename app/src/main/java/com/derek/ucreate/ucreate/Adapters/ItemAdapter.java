@@ -3,6 +3,7 @@ package com.derek.ucreate.ucreate.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
@@ -46,9 +47,8 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         textView.setText(i.getName() + "\nQ." + i.getPrice());
         textView.setTextColor(color);
 
-        v.setBackgroundColor(backgroundColor);
-
-        CardView cardView = (CardView) v.findViewById(R.id.CardViewItem);
+        CardView cardView = (CardView) v;
+        cardView.setCardBackgroundColor(backgroundColor);
         cardView.findViewById(R.id.layoutCardView).setBackgroundColor(cardBackgroundColor);
 
         //http://stackoverflow.com/questions/5725745/horizontal-scrolling-grid-view

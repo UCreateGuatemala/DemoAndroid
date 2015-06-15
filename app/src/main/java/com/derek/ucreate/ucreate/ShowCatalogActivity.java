@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,8 +35,8 @@ public class ShowCatalogActivity extends Activity{
     private String          logoName;
     private Bitmap          logo;
     private List<Item>      items;
-    private int             rotationItem;
-    private int rotation;
+    private int             rotationItem, rotation;
+    private GridView        grid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class ShowCatalogActivity extends Activity{
         layoutItem = (RelativeLayout) findViewById(R.id.RelativeLayoutItems);
         layoutButtonsTop = (LinearLayout) findViewById(R.id.LayoutButtonsTop);
         layoutButtonsLeft = (LinearLayout) findViewById(R.id.LayoutButtonsLeft);
-        GridView grid = (GridView) findViewById(R.id.ListItems);
+        grid = (GridView) findViewById(R.id.ListItems);
 
         Bundle b = getIntent().getExtras();
         getExtrasBundle(b);
@@ -59,23 +60,23 @@ public class ShowCatalogActivity extends Activity{
         for (int i=0; i<8; i++){
             items.add(new Item("Item "+i,(i+r.nextInt(10))* r.nextInt(5), BitmapFactory.decodeResource(getResources(), R.drawable.solologo)));
         }
-        grid.setNumColumns(2);
         grid.setRotation(rotation);
+        grid.setNumColumns(2);
         grid.setAdapter(new ItemAdapter(this, R.layout.catalog_2_list_items, items, textColor, backgroundItemColor, backgroundCardColor, rotationItem));
     }
 
     public void setTemplate(){
-        if (templateType == 2){
-            layoutItem.removeView(layoutButtonsTop);
-            layoutItem.removeView(layoutButtonsLeft);
-            rotationItem = 0;
-            rotation = 0;
-        }
-        else if(templateType == 1){
+        if(templateType == 1){
             layoutItem.removeView(layoutButtonsTop);
             layoutItem.removeView(layoutButtonsLeft);
             rotationItem = 90;
             rotation = 270;
+        }
+        else if (templateType == 2){
+            layoutItem.removeView(layoutButtonsTop);
+            layoutItem.removeView(layoutButtonsLeft);
+            rotationItem = 0;
+            rotation = 0;
         }
         else if (templateType==3){
             layoutItem.removeView(layoutButtonsTop);
@@ -88,8 +89,8 @@ public class ShowCatalogActivity extends Activity{
             layoutItem.removeView(layoutButtonsTop);
         }
         else{
-            layoutItem.removeView(layoutButtonsTop);
-            layoutItem.removeView(layoutButtonsLeft);
+            layoutItem.removeAllViews();
+            layoutItem.addView(grid);
         }
     }
 
