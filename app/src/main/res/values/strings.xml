@@ -51,14 +51,14 @@
     </string>
     <string name="demo_select">Selecciona tu plantilla:</string>
 
-    <string name="intro">Actualmente la tecnología se presenta como una herramienta. Nosotros
-        queremos entregártela como la oportunidad, mediante apps, para expandir tu mercado.
+    <string name="intro">Actualmente la tecnología se presenta como una herramienta.
+        Queremos entregártela como la oportunidad, mediante apps, para expandir tu mercado.
     </string>
     <string name="mission">MISIÓN</string>
     <string name="vision">VISIÓN</string>
     <string name="values">VALORES</string>
-    <string name="mission_content">Nosotros promovemos el crecimiento de mercado de las empresas
-        mediante el uso de apps.
+    <string name="mission_content">Promover  el crecimiento de mercado de las empresas mediante el
+        uso de aplicaciones móviles.
     </string>
     <string name="vision_content">Ser la empresa líder de Guatemala desarrolladora de aplicaciones
         para las plataformas Android y iOS.
@@ -68,11 +68,11 @@
     <string name="quality">•  Calidad:</string>
     <string name="passion">•  Pasión:</string>
     <string name="empathy">•  Empatía:</string>
-    <string name="punctuality_content">entregamos a tiempo</string>
-    <string name="honesty_content">ser realista</string>
-    <string name="quality_content">funcionalidad efectiva</string>
-    <string name="passion_content">reflejamos la excelencia en nuestros productos</string>
-    <string name="empathy_content">nos anticipamos a tus necesidades</string>
+    <string name="punctuality_content">entrega en el tiempo establecido.</string>
+    <string name="honesty_content">compromiso total con el cliente.</string>
+    <string name="quality_content">funcionalidad efectiva.</string>
+    <string name="passion_content">reflejamos la excelencia en nuestros productos.</string>
+    <string name="empathy_content">respeto por las personas relacionadas y compromiso por su éxito.</string>
 
     <string name="phone_number">Teléfono:</string>
     <string name="email">Correo electrónico:</string>
@@ -120,5 +120,13 @@
     <string name="DescriptionButton">Descripción</string>
     <string name="RatingButton">Calificación</string>
     <string name="CommentsButton">Comentarios</string>
+    <string name="title_activity_catalog_final">CatalogFinalActivity</string>
 
+    <string name="group1">Grupo 1</string>
+    <string name="group2">Grupo 2</string>
+    <string name="group3">Grupo 3</string>
+    <string name="group4">Grupo 4</string>
+    <string name="group5">Grupo 5</string>
+    <string name="title_activity_contact_us_end">ContactUsEndActivity</string>
+    <string name="title_activity_my_dialog">MyDialog</string>
 </resources>

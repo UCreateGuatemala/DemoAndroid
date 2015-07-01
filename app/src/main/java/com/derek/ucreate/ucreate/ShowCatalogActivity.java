@@ -35,7 +35,6 @@ public class ShowCatalogActivity extends Activity{
     private String          logoName;
     private Bitmap          logo;
     private List<Item>      items;
-    private int             rotationItem, rotation;
     private GridView        grid;
 
     @Override
@@ -60,23 +59,18 @@ public class ShowCatalogActivity extends Activity{
         for (int i=0; i<8; i++){
             items.add(new Item("Item "+i,(i+r.nextInt(10))* r.nextInt(5), BitmapFactory.decodeResource(getResources(), R.drawable.solologo)));
         }
-        grid.setRotation(rotation);
         grid.setNumColumns(2);
-        grid.setAdapter(new ItemAdapter(this, R.layout.catalog_2_list_items, items, textColor, backgroundItemColor, backgroundCardColor, rotationItem));
+        grid.setAdapter(new ItemAdapter(this, R.layout.catalog_2_list_items, items, textColor, backgroundItemColor, backgroundCardColor));
     }
 
     public void setTemplate(){
         if(templateType == 1){
             layoutItem.removeView(layoutButtonsTop);
             layoutItem.removeView(layoutButtonsLeft);
-            rotationItem = 90;
-            rotation = 270;
         }
         else if (templateType == 2){
             layoutItem.removeView(layoutButtonsTop);
             layoutItem.removeView(layoutButtonsLeft);
-            rotationItem = 0;
-            rotation = 0;
         }
         else if (templateType==3){
             layoutItem.removeView(layoutButtonsTop);

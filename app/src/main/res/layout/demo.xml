@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:scrollbars="horizontal">
+    android:scrollbars="horizontal"
+    android:background="@drawable/fondo2">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/demo_title"
+        android:textColor="@color/white"
         android:id="@+id/textViewDemoTitle"
         android:layout_gravity="center_horizontal"
         android:textSize="25sp"
@@ -31,6 +33,7 @@
             android:layout_marginLeft="15dp"
             android:textSize="15sp"
             android:text="@string/demo_inst"
+            android:textColor="@color/white"
             android:id="@+id/textViewDemoContent" />
 
         <Space
@@ -43,18 +46,19 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:text="@string/demo_select"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:id="@+id/textViewSelectTemplate" />
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal">
 
             <Button
-                android:layout_width="130dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:text="Catalogo"

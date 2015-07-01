@@ -13,7 +13,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -57,7 +56,7 @@ public class Catalog_2 extends Fragment {
     private List<Item>      items;
     private GridView        gridView;
     private Bitmap          logo;
-
+    private Uri             logoImage = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,12 +68,13 @@ public class Catalog_2 extends Fragment {
         logoIcon.setOnClickListener(new ClickListenerLogo());
         logoText.setOnClickListener(new ClickListenerLogo());
 
-        getActivity().getIntent().putExtra("BackgroundColor",backgroundColor);
+        getActivity().getIntent().putExtra("BackgroundColor", backgroundColor);
         getActivity().getIntent().putExtra("TextColor",textColor);
         getActivity().getIntent().putExtra("LogoTextColor",logoTextColor);
         getActivity().getIntent().putExtra("LogoName",getResources().getString(R.string.app_name));
         getActivity().getIntent().putExtra("Orientation",0);
-        getActivity().getIntent().putExtra("BackgroundItemColor",backgroundItemColor);
+        getActivity().getIntent().putExtra("BackgroundItemColor", backgroundItemColor);
+        getActivity().getIntent().putExtra("CardBackgroundColor",grayBackgroundColor);
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         logo = BitmapFactory.decodeResource(getResources(),R.drawable.solologo);
@@ -103,24 +103,11 @@ public class Catalog_2 extends Fragment {
         items = new ArrayList<>();
         Random r = new Random();
         for (int i=0; i<4; i++){
-            items.add(new Item("Item "+i,(i+r.nextInt(10))* r.nextInt(5), BitmapFactory.decodeResource(getResources(),R.drawable.solologo)));
+            items.add(new Item("Item "+i,(i+r.nextInt(10))* r.nextInt(5), BitmapFactory.decodeResource(getResources(),R.drawable.item_1)));
         }
 
-        rotationItem = getActivity().getIntent().getIntExtra("RotationItem",-1);
-        rotation = getActivity().getIntent().getIntExtra("Rotation",-1);
-
-        if (rotationItem==-1){
-            rotationItem = 0;
-            getActivity().getIntent().putExtra("RotationItem",0);
-        }
-        if (rotation==1){
-            rotation = 0;
-            getActivity().getIntent().putExtra("Rotation",0);
-        }
-
-        gridView.setRotation(rotation);
         gridView.setNumColumns(numRows);
-        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,grayBackgroundColor,cardBackgroundColor,rotationItem));
+        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,grayBackgroundColor,cardBackgroundColor));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view, int i, long l) {
@@ -168,15 +155,9 @@ public class Catalog_2 extends Fragment {
             }
         }
         if (requestCode==PICK_IMAGE_REQUEST && resultCode== Activity.RESULT_OK){
-            Uri selectedImage = data.getData();
-            String path = getRealPathFromURI(selectedImage);
-            if (path != null) {
-                try {
-                    performCrop(selectedImage);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            logoIcon.setImageURI(data.getData());
+            logoImage = data.getData();
+            getActivity().getIntent().putExtra("ImageUri",logoImage.toString());
         }
     }
 
@@ -264,15 +245,15 @@ public class Catalog_2 extends Fragment {
                 .with(getActivity())
                 .setTitle(getResources().getString(R.string.select_color))
                 .initialColor(grayBackgroundColor)
-                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .density(10)
+                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                .density(8)
                 .setPositiveButton(getResources().getString(R.string.accept), new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                         Log.i("Color", selectedColor + "");
                         if (type.equals("TextColor")) {
                             textColor = selectedColor;
-                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor,rotationItem));
+                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor));
                             getActivity().getIntent().putExtra("TextColor",selectedColor);
                         } else if (type.equals("BackgroundColor")) {
                             CatalogBackground.setBackgroundColor(selectedColor);
@@ -286,12 +267,12 @@ public class Catalog_2 extends Fragment {
                         }
                         else if (type.equals("BackgroundItemColor")){
                             backgroundItemColor = selectedColor;
-                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor,rotationItem));
+                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor));
                             getActivity().getIntent().putExtra("BackgroundItemColor",selectedColor);
                         }
                         else if(type.equals("CardBackgroundColor")){
                             cardBackgroundColor = selectedColor;
-                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor,rotationItem));
+                            gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,backgroundItemColor,cardBackgroundColor));
                             getActivity().getIntent().putExtra("CardBackgroundColor",selectedColor);
                         }
                     }
@@ -354,7 +335,7 @@ public class Catalog_2 extends Fragment {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Select Logo"), PICK_IMAGE_REQUEST);
         globalChange = change;
     }
 

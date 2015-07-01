@@ -2,6 +2,7 @@ package com.derek.ucreate.ucreate;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -50,7 +51,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setLogo(R.mipmap.ic_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_catalog);
 
@@ -131,8 +132,13 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
             int orientation = b.getInt("Orientation");
             String logoName = b.getString("LogoName");
             byte[] logo = b.getByteArray("Logo");
+            String imageUri = b.getString("ImageUri");
+            Boolean buttonBuy = b.getBoolean("buyButton");
+            Boolean description = b.getBoolean("Description");
+            Boolean ratingStars = b.getBoolean("ratingStars");
 
-            Intent i = new Intent(CatalogActivity.this,ShowCatalogActivity.class);
+
+            Intent i = new Intent(CatalogActivity.this,CatalogFinalActivity.class);
 
             i.putExtra("Template",templateType);
             i.putExtra("BackgroundColor",backgroundColor);
@@ -143,6 +149,10 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
             i.putExtra("LogoName",logoName);
             i.putExtra("Orientation",orientation);
             i.putExtra("Logo",logo);
+            i.putExtra("ImageUri", imageUri);
+            i.putExtra("buyButton", buttonBuy);
+            i.putExtra("Description",description);
+            i.putExtra("ratingStars",ratingStars);
 
             startActivity(i);
         }

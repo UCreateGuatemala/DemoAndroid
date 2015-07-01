@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/CatalogBackground">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/RelativeLayoutCatalog1Up">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:src="@drawable/solologo"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/imageViewCatalog1"/>
+        <TextView
+            android:id="@+id/textViewCatalog1"
+            android:layout_toRightOf="@id/imageViewCatalog1"
+            android:layout_toEndOf="@id/imageViewCatalog1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:text="@string/app_name"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutItems"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/RelativeLayoutCatalog1Up"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/LayoutButtonsTop"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/LayoutButtonsLeft"
+            android:layout_below="@id/LayoutButtonsTop">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <GridView
+                    android:layout_toRightOf="@id/LayoutButtonsLeft"
+                    android:layout_below="@id/LayoutButtonsTop"
+                    android:id="@+id/ListItems"
+                    android:layout_width="2000dp"
+                    android:layout_height="wrap_content"
+
+                    android:numColumns="2"
+                    android:verticalSpacing="1dp"
+                    android:horizontalSpacing="1dp"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+</RelativeLayout>

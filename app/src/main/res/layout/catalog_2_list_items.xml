@@ -16,7 +16,7 @@
             android:layout_height="70dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/imageViewItem"
-            android:src="@drawable/solologo"
+            android:src="@drawable/item_1"
             android:layout_weight="1"/>
 
         <TextView

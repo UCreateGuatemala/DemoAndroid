@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ff29cca5">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:orientation="vertical"
-        android:background="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
@@ -24,74 +22,63 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-
             android:id="@+id/linearLayout">
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#c1a5a6ad">
+
+                <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageViewItemShow"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/item_1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Número de categorías:"
-                    android:id="@+id/textViewCategoryQuantity"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:text="Item 1 \n Q. 0.00"
+                    android:id="@+id/textView" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="2"
-                    android:id="@+id/textViewCategoryNumber"
-                    android:textSize="20sp" />
             </LinearLayout>
 
-            <SeekBar
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/seekBarCategories"
-                android:layout_gravity="center_horizontal"
-                android:max="5"
-                android:progress="1"
-                android:indeterminate="false" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Número de productos:"
-                    android:id="@+id/textViewProductsQuantity"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:layout_gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="16"
-                    android:id="@+id/textViewProductsNumber"
-                    android:textSize="20sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageViewRatingStars"
+                        android:src="@drawable/rating_stars" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Descripción"
+                        android:id="@+id/textViewDescription" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Comprar"
+                        android:id="@+id/buttonBuy" />
+
+                </LinearLayout>
             </LinearLayout>
-
-            <SeekBar
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:max="14"
-                android:progress="1"
-                android:id="@+id/seekBarProducts"
-                android:indeterminate="false" />
 
             <Space
                 android:layout_width="match_parent"
@@ -129,16 +116,9 @@
                 android:layout_gravity="center_horizontal"
                 android:checked="false"/>
 
-            <CheckBox
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Comentarios"
-                android:id="@+id/checkBoxReviews"
-                android:layout_gravity="center_horizontal"
-                android:checked="false"/>
-
         </LinearLayout>
-     </ScrollView>
+        </ScrollView>
+
     </RelativeLayout>
 
 </RelativeLayout>

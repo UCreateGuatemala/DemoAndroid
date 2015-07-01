@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,33 +18,34 @@ import com.derek.ucreate.ucreate.R;
 /**
  * Created by Derek on 5/27/2015.
  */
-public class Catalog_3 extends Fragment implements SeekBar.OnSeekBarChangeListener {
+public class Catalog_3 extends Fragment {
 
-    SeekBar sbCategory, sbProducts;
-    TextView tvCategory, tvProducts;
-    CheckBox cbRating, cbDescription, cbReviews, cbBuyButton;
-    int category = 2, products = 16;
-    int progressCategory = 1, progressProducts = 1;
-    Boolean rating = false, description = false, reviews =  false, buyButton = false;
+    TextView tvDescription, tvComments;
+    CheckBox cbRating, cbDescription, cbBuyButton;
+    Button btnBuy;
+    Boolean rating = false, description = false, buyButton = false;
+    ImageView ivRating;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.catalog_3, container, false);
 
-        sbCategory = (SeekBar) view.findViewById(R.id.seekBarCategories);
-        sbProducts = (SeekBar) view.findViewById(R.id.seekBarProducts);
-
-        tvCategory = (TextView) view.findViewById(R.id.textViewCategoryNumber);
-        tvProducts = (TextView) view.findViewById(R.id.textViewProductsNumber);
-
         cbRating = (CheckBox) view.findViewById(R.id.checkBoxRating);
         cbDescription = (CheckBox) view.findViewById(R.id.checkBoxDescription);
-        cbReviews = (CheckBox) view.findViewById(R.id.checkBoxReviews);
         cbBuyButton = (CheckBox) view.findViewById(R.id.checkBoxBuyButton);
 
-        sbProducts.setOnSeekBarChangeListener(this);
-        sbCategory.setOnSeekBarChangeListener(this);
+        tvDescription = (TextView) view.findViewById(R.id.textViewDescription);
+        btnBuy = (Button) view.findViewById(R.id.buttonBuy);
+        ivRating = (ImageView) view.findViewById(R.id.imageViewRatingStars);
+
+        ivRating.setImageDrawable(null);
+        tvDescription.setText("");
+        btnBuy.setVisibility(View.GONE);
+
+        getActivity().getIntent().putExtra("Description",description);
+        getActivity().getIntent().putExtra("buyButton",buyButton);
+        getActivity().getIntent().putExtra("ratingStars", rating);
 
         cbRating.setOnClickListener(new View.OnClickListener() {
 
@@ -50,10 +53,13 @@ public class Catalog_3 extends Fragment implements SeekBar.OnSeekBarChangeListen
             public void onClick(View v) {
                 //is chkIos checked?
                 if (((CheckBox) v).isChecked()) {
+                    ivRating.setImageResource(R.drawable.rating_stars);
                     rating = true;
                 }else{
+                    ivRating.setImageDrawable(null);
                     rating = false;
                 }
+                getActivity().getIntent().putExtra("ratingStars",rating);
             }
         });
 
@@ -63,11 +69,13 @@ public class Catalog_3 extends Fragment implements SeekBar.OnSeekBarChangeListen
             public void onClick(View v) {
                 //is chkIos checked?
                 if (((CheckBox) v).isChecked()) {
+                    tvDescription.setText("Descripci\u00F3n");
                     description = true;
                 }else{
+                    tvDescription.setText("");
                     description = false;
                 }
-
+                getActivity().getIntent().putExtra("Description",description);
             }
         });
 
@@ -77,52 +85,15 @@ public class Catalog_3 extends Fragment implements SeekBar.OnSeekBarChangeListen
             public void onClick(View v) {
                 //is chkIos checked?
                 if (((CheckBox) v).isChecked()) {
+                    btnBuy.setVisibility(View.VISIBLE);
                     buyButton = true;
                 }else{
+                    btnBuy.setVisibility(View.GONE);
                     buyButton = false;
                 }
-            }
-        });
-
-        cbReviews.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //is chkIos checked?
-                if (((CheckBox) v).isChecked()) {
-                    reviews = true;
-                }else{
-                    reviews = false;
-                }
+                getActivity().getIntent().putExtra("buyButton",buyButton);
             }
         });
         return view;
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        switch (seekBar.getId()) {
-
-            case R.id.seekBarCategories:
-                progressCategory = progress;
-                category = 1+progressCategory;
-                tvCategory.setText(""+category);
-                break;
-
-            case R.id.seekBarProducts:
-                progressProducts = progress;
-                products = 15+progressProducts;
-                tvProducts.setText(""+products);
-                break;
-        }
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
     }
 }

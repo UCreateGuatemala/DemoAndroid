@@ -10,6 +10,7 @@ public class Item {
     private String name;
     private double price;
     private Bitmap image;
+    private String id;
 
     public Item(String name, double price, Bitmap image) {
         this.name = name;

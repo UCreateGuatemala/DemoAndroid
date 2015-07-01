@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.derek.ucreate.ucreate.R;
@@ -21,6 +23,10 @@ public class ThirdFragment  extends Fragment implements View.OnClickListener {
     TextView tvContactEmailInfo;
     TextView tvContactFacebookInfo;
 
+    int i =0;
+    Button boton;
+    ScrollView fondo;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.contact_us, container, false);
@@ -32,6 +38,10 @@ public class ThirdFragment  extends Fragment implements View.OnClickListener {
         tvContactPhoneInfo.setOnClickListener(this);
         tvContactEmailInfo.setOnClickListener(this);
         tvContactFacebookInfo.setOnClickListener(this);
+
+        boton = (Button) view.findViewById(R.id.button);
+        fondo = (ScrollView) view.findViewById(R.id.fondoContacto);
+        boton.setOnClickListener(this);
         return view;
     }
 
@@ -57,6 +67,24 @@ public class ThirdFragment  extends Fragment implements View.OnClickListener {
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webPage);
                 startActivity(webIntent);
                 break;
+            case R.id.button:
+                if (i==0){
+                    fondo.setBackgroundResource(R.drawable.fondo1);
+                }
+                if (i==1){
+                    fondo.setBackgroundResource(R.drawable.fondo2);
+                }
+                if (i==2){
+                    fondo.setBackgroundResource(R.drawable.fondo3);
+                }
+                if (i==3){
+                    fondo.setBackgroundResource(R.drawable.fondo4);
+                }
+                if (i==4){
+                    fondo.setBackgroundResource(R.drawable.fondo);
+                    i = -1;
+                }
+                i++;
         }
     }
 }
