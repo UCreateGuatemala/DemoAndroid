@@ -318,19 +318,19 @@ public class CatalogFinalActivity extends ActionBarActivity {
                 Button dialogBuyButton = (Button) dialog.findViewById(R.id.buttonBuy);
                 TextView descriptionText = (TextView) dialog.findViewById(R.id.textViewDescription);
                 RatingBar ratingBar = (RatingBar) dialog.findViewById(R.id.ratingBar);
-                if (dialogButton){
+                if (dialogButton) {
                     dialogBuyButton.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     dialogBuyButton.setVisibility(View.GONE);
                 }
-                if (description){
+                if (description) {
                     descriptionText.setText("Descripci\u00F3n: Este es un producto de demostraci\u00F3n");
-                }else{
+                } else {
                     descriptionText.setText("");
                 }
-                if (ratingStars){
+                if (ratingStars) {
                     ratingBar.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     ratingBar.setVisibility(View.GONE);
                 }
                 dialog.show();
@@ -591,5 +591,15 @@ public class CatalogFinalActivity extends ActionBarActivity {
                 setItemColors();
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        /*Boolean newStart = false;
+        Intent intentCatalogTemplateActivity = new Intent();
+        intentCatalogTemplateActivity.putExtra("StartFresh",newStart);
+        this.startActivity(intentCatalogTemplateActivity);
+        finish();*/
+        super.onBackPressed();
     }
 }

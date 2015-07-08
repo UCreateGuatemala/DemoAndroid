@@ -3,12 +3,14 @@ package com.derek.ucreate.ucreate.Catalogs;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,32 +22,29 @@ import com.derek.ucreate.ucreate.R;
  */
 public class Catalog_3 extends Fragment {
 
-    TextView tvDescription, tvComments;
+    TextView tvDescription;
     CheckBox cbRating, cbDescription, cbBuyButton;
     Button btnBuy;
     Boolean rating = false, description = false, buyButton = false;
     ImageView ivRating;
+    LinearLayout layout;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.catalog_3, container, false);
 
-        cbRating = (CheckBox) view.findViewById(R.id.checkBoxRating);
+        /*cbRating = (CheckBox) view.findViewById(R.id.checkBoxRating);
         cbDescription = (CheckBox) view.findViewById(R.id.checkBoxDescription);
-        cbBuyButton = (CheckBox) view.findViewById(R.id.checkBoxBuyButton);
+        cbBuyButton = (CheckBox) view.findViewById(R.id.checkBoxBuyButton);*/
 
         tvDescription = (TextView) view.findViewById(R.id.textViewDescription);
         btnBuy = (Button) view.findViewById(R.id.buttonBuy);
         ivRating = (ImageView) view.findViewById(R.id.imageViewRatingStars);
 
-        ivRating.setImageDrawable(null);
-        tvDescription.setText("");
-        btnBuy.setVisibility(View.GONE);
+        layout = (LinearLayout) view.findViewById(R.id.linearLayout);
+        startup();
 
-        getActivity().getIntent().putExtra("Description",description);
-        getActivity().getIntent().putExtra("buyButton",buyButton);
-        getActivity().getIntent().putExtra("ratingStars", rating);
 
         cbRating.setOnClickListener(new View.OnClickListener() {
 
@@ -96,4 +95,41 @@ public class Catalog_3 extends Fragment {
         });
         return view;
     }
+
+    private void startup() {
+        rating = false;
+        description = false;
+        buyButton = false;
+
+        ivRating.setImageDrawable(null);
+        tvDescription.setText("");
+        btnBuy.setVisibility(View.GONE);
+
+        getActivity().getIntent().putExtra("Description", description);
+        getActivity().getIntent().putExtra("buyButton", buyButton);
+        getActivity().getIntent().putExtra("ratingStars", rating);
+
+        cbRating = new CheckBox(getActivity());
+        cbRating.setText("Rating                     ");
+        LinearLayout.LayoutParams paramsRating = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramsRating.gravity = Gravity.CENTER;
+        cbRating.setLayoutParams(paramsRating);
+        layout.addView(cbRating);
+
+        cbDescription = new CheckBox(getActivity());
+        cbDescription.setText("Descripci\u00F3n           ");
+        LinearLayout.LayoutParams paramsDescription = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramsDescription.gravity = Gravity.CENTER;
+        cbDescription.setLayoutParams(paramsDescription);
+        layout.addView(cbDescription);
+
+        cbBuyButton = new CheckBox(getActivity());
+        cbBuyButton.setText("Boton de comprar");
+        LinearLayout.LayoutParams paramsButton = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        paramsButton.gravity = Gravity.CENTER;
+        cbBuyButton.setLayoutParams(paramsButton);
+        layout.addView(cbBuyButton);
+    }
+
+
 }

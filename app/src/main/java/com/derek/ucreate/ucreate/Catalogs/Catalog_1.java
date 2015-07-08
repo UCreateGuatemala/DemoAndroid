@@ -18,6 +18,7 @@ public class Catalog_1 extends Fragment {
 
     ImageButton ibTemplate1, ibTemplate2, ibTemplate3, ibTemplate4, ibTemplate5;
     ImageView ivTemplate;
+    final int startUpTemplate = 1;
     int template = 1;
 
 
@@ -33,6 +34,8 @@ public class Catalog_1 extends Fragment {
         ibTemplate4 = (ImageButton) view.findViewById(R.id.imageButtonTemplate4);
         ibTemplate5 = (ImageButton) view.findViewById(R.id.imageButtonTemplate5);
         ivTemplate = (ImageView) view.findViewById(R.id.imageViewTemplate);
+
+        startup();
 
         ibTemplate1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
@@ -75,5 +78,13 @@ public class Catalog_1 extends Fragment {
         });
 
         return view;
+    }
+
+    private void startup() {
+        if (startUpTemplate==1){
+            ivTemplate.setImageResource(R.drawable.template_1);
+            template = 1;
+            getActivity().getIntent().putExtra("Template",template);
+        }
     }
 }

@@ -114,7 +114,7 @@
     <string name="select_color">Seleccione el color</string>
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
-    <string name="show_catalog">Ver Catálogo</string>
+    <string name="show_catalog">Vista Previa</string>
 
     <string name="BuyButton">Comprar</string>
     <string name="DescriptionButton">Descripción</string>
@@ -129,4 +129,6 @@
     <string name="group5">Grupo 5</string>
     <string name="title_activity_contact_us_end">ContactUsEndActivity</string>
     <string name="title_activity_my_dialog">MyDialog</string>
+
+    <string name="reset">Empezar de nuevo</string>
 </resources>

@@ -54,6 +54,8 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         getSupportActionBar().setLogo(R.mipmap.ic_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_catalog);
+        Bundle b = getIntent().getExtras();
+        getExtrasBundle(b);
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
@@ -101,6 +103,12 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         }
     }
 
+    private void getExtrasBundle(Bundle b) {
+        /*boolean newStart = b.getBoolean("StartFresh");
+        Toast.makeText(CatalogActivity.this,""+newStart,
+                Toast.LENGTH_SHORT).show();*/
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -117,7 +125,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.reset) {
             return true;
         }
         else if(id == R.id.showCatalog){

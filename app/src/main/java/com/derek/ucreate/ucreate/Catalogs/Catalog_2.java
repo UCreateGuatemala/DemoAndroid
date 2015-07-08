@@ -51,12 +51,13 @@ public class Catalog_2 extends Fragment {
     private TextView        logoText;
     private final int       PICK_IMAGE_REQUEST=1;
     private final int       PIC_CROP = 2;
-    private final int       numRows = 2,grayBackgroundColor=-1;
-    private int             backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216, backgroundItemColor=-1, rotation=0,rotationItem=0, cardBackgroundColor = -1;
+    private final int       numRows = 2,startUpGrayBackgroundColor=-1, startUpBackgroundColor=-1,startUpTextColor=-16777216,startUpLogoTextColor=-16777216, startUpBackgroundItemColor=-1, startUpCardBackgroundColor = -1;;
+    private int             grayBackgroundColor=-1,backgroundColor=-1,textColor=-16777216,logoTextColor=-16777216, backgroundItemColor=-1, cardBackgroundColor = -1;
     private List<Item>      items;
     private GridView        gridView;
     private Bitmap          logo;
     private Uri             logoImage = null;
+    private byte[]          bytes;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,18 +69,15 @@ public class Catalog_2 extends Fragment {
         logoIcon.setOnClickListener(new ClickListenerLogo());
         logoText.setOnClickListener(new ClickListenerLogo());
 
-        getActivity().getIntent().putExtra("BackgroundColor", backgroundColor);
-        getActivity().getIntent().putExtra("TextColor",textColor);
-        getActivity().getIntent().putExtra("LogoTextColor",logoTextColor);
+        startup();
+
+        getActivity().getIntent().putExtra("BackgroundColor", startUpBackgroundColor);
+        getActivity().getIntent().putExtra("TextColor", startUpTextColor);
+        getActivity().getIntent().putExtra("LogoTextColor",startUpLogoTextColor);
         getActivity().getIntent().putExtra("LogoName",getResources().getString(R.string.app_name));
         getActivity().getIntent().putExtra("Orientation",0);
-        getActivity().getIntent().putExtra("BackgroundItemColor", backgroundItemColor);
-        getActivity().getIntent().putExtra("CardBackgroundColor",grayBackgroundColor);
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        logo = BitmapFactory.decodeResource(getResources(),R.drawable.solologo);
-        logo.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] bytes = stream.toByteArray();
+        getActivity().getIntent().putExtra("BackgroundItemColor", startUpBackgroundItemColor);
+        getActivity().getIntent().putExtra("CardBackgroundColor", startUpGrayBackgroundColor);
         getActivity().getIntent().putExtra("Logo",bytes);
 
         CatalogBackground = (RelativeLayout) v.findViewById(R.id.CatalogBackground);
@@ -107,7 +105,7 @@ public class Catalog_2 extends Fragment {
         }
 
         gridView.setNumColumns(numRows);
-        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,textColor,grayBackgroundColor,cardBackgroundColor));
+        gridView.setAdapter(new ItemAdapter(getActivity(),R.layout.catalog_2_list_items,items,startUpTextColor,startUpGrayBackgroundColor,startUpCardBackgroundColor));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view, int i, long l) {
@@ -129,6 +127,13 @@ public class Catalog_2 extends Fragment {
             }
         });
         return v;
+    }
+
+    private void startup() {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        logo = BitmapFactory.decodeResource(getResources(),R.drawable.solologo);
+        logo.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        bytes = stream.toByteArray();
     }
 
     @Override
@@ -198,45 +203,6 @@ public class Catalog_2 extends Fragment {
                     }
                 }
             }).show();
-        }
-    }
-    public String getRealPathFromURI(Uri contentUri){
-        String [] proj      = {MediaStore.Images.Media.DATA};
-        Cursor cursor       = getActivity().managedQuery( contentUri, proj, null, null,null);
-        if (cursor == null) return null;
-        int column_index    = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
-
-    private void performCrop(Uri mImageCaptureUri){
-        try {
-            Intent intent = new Intent("com.android.camera.action.CROP");
-            intent.setType("image/*");
-
-            List<ResolveInfo> list = getActivity().getPackageManager().queryIntentActivities(intent, 0);
-            int size = list.size();
-
-            if (size >= 0) {
-                intent.setData(mImageCaptureUri);
-                intent.putExtra("crop", "true");
-                intent.putExtra("aspectX", 1);
-                intent.putExtra("aspectY", 1);
-                intent.putExtra("outputX", 90);
-                intent.putExtra("outputY", 90);
-                intent.putExtra("scale", true);
-                intent.putExtra("return-data", true);
-
-                Intent i = new Intent(intent);
-                ResolveInfo res = list.get(0);
-                i.setComponent( new ComponentName(res.activityInfo.packageName, res.activityInfo.name));
-
-                startActivityForResult(i, PIC_CROP);
-            }
-        }
-        catch(ActivityNotFoundException anfe){
-            String errorMessage = "Whoops - your device doesn't support the crop action!";
-            Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
         }
     }
 

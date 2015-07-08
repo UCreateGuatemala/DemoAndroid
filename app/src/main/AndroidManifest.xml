@@ -17,10 +17,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ShowCatalogActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".IntroActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
@@ -54,9 +50,6 @@
         <activity
             android:name=".CatalogFinalActivity"
             android:label="@string/app_name" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.derek.ucreate.ucreate.CatalogActivity" />
         </activity>
         <activity
             android:name=".ContactUsEndActivity"

@@ -22,7 +22,6 @@ public class FirstFragment  extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.demo, container, false);
 
         Button btnCatalogTemplate = (Button) view.findViewById(R.id.buttonCatalogTemplate);
-
         btnCatalogTemplate.setOnClickListener(this);
         return view;
     }
@@ -31,7 +30,9 @@ public class FirstFragment  extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonCatalogTemplate:
+                Boolean newStart = true;
                 Intent intentCatalogTemplateActivity = new Intent(getActivity(), CatalogActivity.class);
+               // intentCatalogTemplateActivity.putExtra("StartFresh",newStart);
                 getActivity().startActivity(intentCatalogTemplateActivity);
                 break;
         }

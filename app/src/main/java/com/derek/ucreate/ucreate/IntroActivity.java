@@ -5,18 +5,25 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 
 public class IntroActivity extends ActionBarActivity {
+
+    Button btnNext, btnLogo;
+    ImageView logo;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        Thread introTimer = new Thread(){
+        /*Thread introTimer = new Thread(){
             public void run(){
                 try{
-                    sleep(3000);
+                    sleep(2000);
                     Intent intentStart;
                     intentStart = new Intent(IntroActivity.this, MainActivity.class);
                     startActivity(intentStart);
@@ -27,7 +34,10 @@ public class IntroActivity extends ActionBarActivity {
                 }
             }
         };
-        introTimer.start();
+        introTimer.start();*/
+        btnLogo = (Button) findViewById(R.id.buttonLogo);
+        btnNext = (Button) findViewById(R.id.buttonNext);
+        logo = (ImageView) findViewById(R.id.imageViewLogo);
     }
 
 
@@ -46,5 +56,25 @@ public class IntroActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buttonIntro(View view) {
+        switch (view.getId()){
+            case R.id.buttonLogo:
+                if (i==0){
+                    logo.setImageResource(R.drawable.solologo2);
+                }else{
+                    logo.setImageResource(R.drawable.solologo);
+                    i=-1;
+                }
+                i++;
+                break;
+            case R.id.buttonNext:
+                Intent intentStart;
+                intentStart = new Intent(IntroActivity.this, MainActivity.class);
+                startActivity(intentStart);
+                finish();
+                break;
+        }
     }
 }

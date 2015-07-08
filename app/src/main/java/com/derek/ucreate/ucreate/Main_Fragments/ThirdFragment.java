@@ -81,6 +81,12 @@ public class ThirdFragment  extends Fragment implements View.OnClickListener {
                     fondo.setBackgroundResource(R.drawable.fondo4);
                 }
                 if (i==4){
+                    fondo.setBackgroundResource(R.drawable.fondo5);
+                }
+                if (i==5){
+                    fondo.setBackgroundResource(R.drawable.fondo6);
+                }
+                if (i==6){
                     fondo.setBackgroundResource(R.drawable.fondo);
                     i = -1;
                 }

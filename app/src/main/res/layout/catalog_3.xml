@@ -92,30 +92,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <CheckBox
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Rating"
-                android:id="@+id/checkBoxRating"
-                android:layout_gravity="center_horizontal"
-                android:checked="false"/>
-
-            <CheckBox
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Boton de comprar"
-                android:id="@+id/checkBoxBuyButton"
-                android:layout_gravity="center_horizontal"
-                android:checked="false" />
-
-            <CheckBox
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Descripcion"
-                android:id="@+id/checkBoxDescription"
-                android:layout_gravity="center_horizontal"
-                android:checked="false"/>
-
         </LinearLayout>
         </ScrollView>
 
