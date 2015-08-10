@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Derek\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Derek\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-7aad8a7b8a7a45b6addd363128692a3a49fd8716.jar" />
-    </item>
-    <item
         jar="C:\Users\Derek\Documents\GitHub\DemoAndroid\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
         <dex dex="C:\Users\Derek\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\classes-f7f1b3c2bba931d2c0fc3500a2e24cb9acecd97d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Derek\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Derek\Documents\GitHub\DemoAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-7aad8a7b8a7a45b6addd363128692a3a49fd8716.jar" />
     </item>
     <item
         jar="C:\Users\Derek\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"

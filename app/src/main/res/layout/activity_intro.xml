@@ -6,30 +6,18 @@
     android:background="#ff000000">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageViewLogo"
-        android:src="@drawable/name_logo"
-        android:layout_margin="50dp"
-        android:scaleType="fitCenter" />
+        android:src="@drawable/logo"
+        android:scaleType="center" />
 
-    <Button
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cambiar Logo"
-        android:id="@+id/buttonLogo"
+        android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="buttonIntro"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/creando_oportunidades" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/buttonNext"
-        android:layout_alignBottom="@+id/buttonLogo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="buttonIntro"/>
 </RelativeLayout>

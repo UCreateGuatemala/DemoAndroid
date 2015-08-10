@@ -8,8 +8,4 @@
         android:title="@string/show_catalog"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/reset"
-        android:title="@string/reset"
-        app:showAsAction="never"/>
 </menu>

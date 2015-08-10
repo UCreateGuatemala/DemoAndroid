@@ -131,7 +131,7 @@ public class Catalog_2 extends Fragment {
 
     private void startup() {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        logo = BitmapFactory.decodeResource(getResources(),R.drawable.solologo);
+        logo = BitmapFactory.decodeResource(getResources(),R.drawable.logo);
         logo.compress(Bitmap.CompressFormat.PNG, 100, stream);
         bytes = stream.toByteArray();
     }
@@ -140,8 +140,8 @@ public class Catalog_2 extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_CANCELED){
-            logoIcon.setImageResource(R.drawable.solologo);
-            getActivity().getIntent().putExtra("Logo",R.drawable.solologo);
+            logoIcon.setImageResource(R.drawable.logo);
+            getActivity().getIntent().putExtra("Logo",R.drawable.logo);
             logoText.setText("UCreate");
         }
         else if (resultCode == Activity.RESULT_OK) {

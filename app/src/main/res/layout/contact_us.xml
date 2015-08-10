@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:layout_gravity="center"
     android:id="@+id/fondoContacto"
-    android:background="@drawable/fondo2">
+    android:background="@drawable/fondo_contact_us">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:background="#6a000000"
+        android:baselineAligned="false">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="50dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,15 +28,16 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/phone_content"
-            android:id="@+id/textViewContactPhoneInfo"
+            android:id="@+id/buttonContactPhoneInfo"
+            android:background="@drawable/button_contacts"
             android:layout_gravity="right"
             android:textSize="15sp"
             android:onClick="onClickNumber"
-            android:textColor="#ff002cff" />
+            android:textColor="@color/white" />
 
         <Space
             android:layout_width="match_parent"
@@ -50,15 +53,17 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_content"
-            android:id="@+id/textViewContactEmailInfo"
+            android:id="@+id/buttonContactEmailInfo"
+            android:background="@drawable/button_contacts"
             android:layout_gravity="right"
             android:textSize="15sp"
-            android:onClick="onClickEmail"
-            android:textColor="#ff002cff"/>
+            android:onClick="onClickNumber"
+            android:textColor="@color/white" />
 
         <Space
             android:layout_width="match_parent"
@@ -74,21 +79,20 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/facebook_content"
-            android:id="@+id/textViewContactFacebookInfo"
-            android:layout_gravity="right"
-            android:textSize="15sp"
-            android:onClick="onClickFacebook"
-            android:textColor="#ff002cff"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CambiarFondo"
-            android:id="@+id/button"
-            android:layout_gravity="right" />
+            android:text="@string/facebook_content"
+            android:id="@+id/buttonContactFacebookInfo"
+            android:background="@drawable/button_contacts"
+            android:layout_gravity="right"
+            android:textSize="15sp"
+            android:onClick="onClickNumber"
+            android:textColor="@color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
     </LinearLayout>
 </ScrollView>

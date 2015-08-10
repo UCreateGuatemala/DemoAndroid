@@ -51,7 +51,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.ic_logo);
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         setContentView(R.layout.activity_catalog);
         Bundle b = getIntent().getExtras();
@@ -124,11 +124,7 @@ public class CatalogActivity extends ActionBarActivity implements ActionBar.TabL
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.reset) {
-            return true;
-        }
-        else if(id == R.id.showCatalog){
+        if(id == R.id.showCatalog){
             Bundle b = getIntent().getExtras();
 
             int templateType = b.getInt("Template");

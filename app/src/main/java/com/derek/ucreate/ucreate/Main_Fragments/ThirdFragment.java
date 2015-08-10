@@ -19,78 +19,46 @@ import com.derek.ucreate.ucreate.R;
  */
 public class ThirdFragment  extends Fragment implements View.OnClickListener {
 
-    TextView tvContactPhoneInfo;
-    TextView tvContactEmailInfo;
-    TextView tvContactFacebookInfo;
-
-    int i =0;
-    Button boton;
-    ScrollView fondo;
+    Button btnContactPhoneInfo;
+    Button btnContactEmailInfo;
+    Button btnContactFacebookInfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.contact_us, container, false);
 
-        tvContactPhoneInfo = (TextView) view.findViewById(R.id.textViewContactPhoneInfo);
-        tvContactEmailInfo = (TextView) view.findViewById(R.id.textViewContactEmailInfo);
-        tvContactFacebookInfo = (TextView) view.findViewById(R.id.textViewContactFacebookInfo);
+        btnContactPhoneInfo = (Button) view.findViewById(R.id.buttonContactPhoneInfo);
+        btnContactEmailInfo = (Button) view.findViewById(R.id.buttonContactEmailInfo);
+        btnContactFacebookInfo = (Button) view.findViewById(R.id.buttonContactFacebookInfo);
 
-        tvContactPhoneInfo.setOnClickListener(this);
-        tvContactEmailInfo.setOnClickListener(this);
-        tvContactFacebookInfo.setOnClickListener(this);
-
-        boton = (Button) view.findViewById(R.id.button);
-        fondo = (ScrollView) view.findViewById(R.id.fondoContacto);
-        boton.setOnClickListener(this);
+        btnContactPhoneInfo.setOnClickListener(this);
+        btnContactEmailInfo.setOnClickListener(this);
+        btnContactFacebookInfo.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.textViewContactPhoneInfo:
-                String numberUCreate = tvContactPhoneInfo.getText().toString();
+            case R.id.buttonContactPhoneInfo:
+                String numberUCreate = btnContactPhoneInfo.getText().toString();
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + numberUCreate));
                 startActivity(callIntent);
                 break;
-            case R.id.textViewContactEmailInfo:
-                String emailUCreate = tvContactEmailInfo.getText().toString();
+            case R.id.buttonContactEmailInfo:
+                String emailUCreate = btnContactEmailInfo.getText().toString();
                 String[] TO = {emailUCreate};
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("text/plain");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
                 startActivity(emailIntent);
                 break;
-            case R.id.textViewContactFacebookInfo:
+            case R.id.buttonContactFacebookInfo:
                 Uri webPage = Uri.parse("https://www.facebook.com/ucreatesa?notif_t=fbpage_admin");
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webPage);
                 startActivity(webIntent);
                 break;
-            case R.id.button:
-                if (i==0){
-                    fondo.setBackgroundResource(R.drawable.fondo1);
-                }
-                if (i==1){
-                    fondo.setBackgroundResource(R.drawable.fondo2);
-                }
-                if (i==2){
-                    fondo.setBackgroundResource(R.drawable.fondo3);
-                }
-                if (i==3){
-                    fondo.setBackgroundResource(R.drawable.fondo4);
-                }
-                if (i==4){
-                    fondo.setBackgroundResource(R.drawable.fondo5);
-                }
-                if (i==5){
-                    fondo.setBackgroundResource(R.drawable.fondo6);
-                }
-                if (i==6){
-                    fondo.setBackgroundResource(R.drawable.fondo);
-                    i = -1;
-                }
-                i++;
         }
     }
 }
